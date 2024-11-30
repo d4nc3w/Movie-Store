@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Admin Page</title>
+    <link rel="stylesheet" href="/admin.css">
+</head>
+<body>
+    <h1>Admin Page</h1>
+    <table>
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Email</th>
+<!--            <th>Action</th>-->
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="user : ${userEmails}">
+            <td th:text="${user.id}"></td>
+            <td th:text="${user.firstName}"></td>
+            <td th:text="${user.lastName}"></td>
+            <td th:text="${user.email}"></td>
+<!--            <td>-->
+<!--                <a class="btn btn-danger btn-sm"-->
+<!--                   th:href="@{/adminPage/deleteUser(email=${user.email})}">-->
+<!--                    Delete-->
+<!--                </a>-->
+<!--                <a class="btn btn-primary btn-sm"-->
+<!--                   th:href="@{/adminPage/editUser(email=${user.email})}">-->
+<!--                    Edit-->
+<!--                </a>-->
+<!--            </td>-->
+        </tr>
+        </tbody>
+    </table>
+    <a href="/addMovie">Add Movie</a>
+    <a href="/">Back to Movie List</a>
+</body>
+</html>
