@@ -1,1 +1,24 @@
-spring.application.name=Movie-Store-Application
+spring:
+  application:
+    name: Movie-Store-Application
+  h2:
+    console:
+      path: /h2-console
+  datasource:
+    url: jdbc:h2:mem:movies
+    username: s28113
+    password:
+  jpa:
+    show-sql: true
+    hibernate:
+      naming:
+        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+      ddl-auto: create
+    defer-datasource-initialization: true
+  sql:
+    init:
+      data-locations: classpath:sql-data/*.sql
+#  security:
+#    user:
+#      name: admin
+#      password: admin
