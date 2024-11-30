@@ -1,9 +1,11 @@
 package com.example.moviestoreapplication.controller;
 
+import com.example.moviestoreapplication.model.MovieDTO;
 import com.example.moviestoreapplication.service.MovieService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
@@ -17,7 +19,20 @@ public class MovieController {
 
     @GetMapping()
     public String getHome(Model model){
-        model.addAttribute("books", movieService.getAllMovies());
+        model.addAttribute("movies", movieService.getAllMovies());
         return "index";
     }
+
+    @GetMapping("addMovie")
+    public String addBookForm(Model model) {
+        model.addAttribute("movie", new MovieDTO());
+        return "add-movie";
+    }
+
+    @PostMapping("addMovie")
+    public String addBook(MovieDTO movieDTO) {
+        movieService.addMovie(movieDTO);
+        return "redirect:/";
+    }
+
 }

@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class MovieService {
@@ -26,5 +27,13 @@ public class MovieService {
             moviesDTO.add(movieDTOMapper.map(m));
         }
         return moviesDTO;
+    }
+
+    public Optional<Movie> findBookById(Integer id) {
+        return movieRepository.findById(id);
+    }
+
+    public void addMovie(MovieDTO movieDTO){
+        movieRepository.save(movieDTOMapper.map(movieDTO));
     }
 }
