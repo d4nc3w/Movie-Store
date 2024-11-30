@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Movie Store</title>
+</head>
+<body>
+    <h1>Movie List</h1>
+    <table>
+        <thead>
+        <tr>
+            <th>Id</th>
+            <th>Author</th>
+            <th>Title</th>
+            <th>Price</th>
+<!--            <th>Action</th>-->
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="movie : ${movies}">
+            <td th:text="${movie.id}"></td>
+            <td th:text="${movie.author}"></td>
+            <td th:text="${movie.title}"></td>
+            <td th:text="${movie.price}"></td>
+<!--            <td>-->
+<!--                <a class="btn btn-outline-primary" th:href="@{'/book?id=' + ${book.id}}" role="button">Details</a>-->
+<!--            </td>-->
+        </tr>
+        </tbody>
+    </table>
+</body>
+</html>
