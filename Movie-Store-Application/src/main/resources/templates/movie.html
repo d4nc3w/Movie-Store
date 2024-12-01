@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Movie Details</title>
+    <link rel="stylesheet" href="/movie.css">
+</head>
+<body>
+<div th:if="${movie}">
+    <h1>Movie Details</h1>
+        <table>
+            <thead>
+            <tr>
+                <th>Id</th>
+                <th>Director</th>
+                <th>Title</th>
+                <th>Price</th>
+                <th>Action</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td th:text="${movie.id}"></td>
+                <td th:text="${movie.director}"></td>
+                <td th:text="${movie.title}"></td>
+                <td th:text="${movie.price}"></td>
+                <td>
+                    <a class="delete-btn">Delete</a>
+                    <a class="edit-btn">Edit</a>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+</div>
+<div>
+    <a class="add-btn" href="/">Home</a>
+    <a class="admin-btn" href="/adminPage">Admin Page</a>
+    <a class="logout-btn" th:if="${#authentication.isAuthenticated()}"
+       th:text="|Log out ${#authentication.name}|" th:href="@{/logout}"></a>
+</div>
+</body>
+</html>

@@ -22,6 +22,11 @@
         <button type="submit">Add Book</button>
     </form>
 
-    <a href="/">Back to Movie List</a>
+    <div>
+        <a class="add-btn" href="/addMovie">Add Movie</a>
+        <a class="admin-btn" href="/adminPage">Admin Page</a>
+        <a class="logout-btn" th:if="${#authentication.isAuthenticated()}"
+           th:text="|Log out ${#authentication.name}|" th:href="@{/logout}"></a>
+    </div>
 </body>
 </html>

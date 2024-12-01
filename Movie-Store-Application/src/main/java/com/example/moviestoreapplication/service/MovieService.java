@@ -29,7 +29,7 @@ public class MovieService {
         return moviesDTO;
     }
 
-    public Optional<Movie> findBookById(Integer id) {
+    public Optional<Movie> findMovieById(Integer id) {
         return movieRepository.findById(id);
     }
 

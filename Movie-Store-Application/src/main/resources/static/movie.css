@@ -32,22 +32,22 @@ a{
     padding: 10px;
 }
 
-.logout-btn{
+.delete-btn{
     background-color: darkred;
-}
-
-.home-btn{
-    background-color: darkblue;
-}
-
-.add-btn{
-    background-color: darkgreen;
 }
 
 .edit-btn{
     background-color: darkorchid;
 }
 
-.delete-btn{
+.admin-btn{
+    background-color: darkkhaki;
+}
+
+.add-btn{
+    background-color: darkgreen;
+}
+
+.logout-btn{
     background-color: darkred;
 }

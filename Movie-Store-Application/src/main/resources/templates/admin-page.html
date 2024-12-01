@@ -14,7 +14,7 @@
             <th>First Name</th>
             <th>Last Name</th>
             <th>Email</th>
-<!--            <th>Action</th>-->
+            <th>Action</th>
         </tr>
         </thead>
         <tbody>
@@ -23,20 +23,22 @@
             <td th:text="${user.firstName}"></td>
             <td th:text="${user.lastName}"></td>
             <td th:text="${user.email}"></td>
-<!--            <td>-->
-<!--                <a class="btn btn-danger btn-sm"-->
-<!--                   th:href="@{/adminPage/deleteUser(email=${user.email})}">-->
-<!--                    Delete-->
-<!--                </a>-->
-<!--                <a class="btn btn-primary btn-sm"-->
-<!--                   th:href="@{/adminPage/editUser(email=${user.email})}">-->
-<!--                    Edit-->
-<!--                </a>-->
-<!--            </td>-->
+            <td>
+                <a class="delete-btn"
+                   th:href="@{/adminPage/deleteUser(email=${user.email})}">
+                    Delete
+                </a>
+                <a class="edit-btn"
+                   th:href="@{/adminPage/editUser(email=${user.email})}">
+                    Edit
+                </a>
+            </td>
         </tr>
         </tbody>
     </table>
-    <a href="/addMovie">Add Movie</a>
-    <a href="/">Back to Movie List</a>
+    <a class="add-btn" href="/addUser">Add User</a>
+    <a class="home-btn" href="/">Back to Movie List</a>
+    <a class="logout-btn" th:if="${#authentication.isAuthenticated()}"
+       th:text="|Log out ${#authentication.name}|" th:href="@{/logout}"></a>
 </body>
 </html>

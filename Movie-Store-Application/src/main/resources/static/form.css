@@ -48,3 +48,7 @@ a{
     background-color: black;
     padding: 10px;
 }
+
+.logout-btn{
+    background-color: darkred;
+}

@@ -14,7 +14,7 @@
             <th>Director</th>
             <th>Title</th>
             <th>Price</th>
-<!--            <th>Action</th>-->
+            <th>Action</th>
         </tr>
         </thead>
         <tbody>
@@ -23,17 +23,18 @@
             <td th:text="${movie.director}"></td>
             <td th:text="${movie.title}"></td>
             <td th:text="${movie.price}"></td>
-<!--            <td>-->
-<!--                <a class="btn btn-outline-primary" th:href="@{'/book?id=' + ${book.id}}" role="button">Details</a>-->
-<!--            </td>-->
+            <td>
+                <a class="details-btn" th:href="@{'/movie?id=' + ${movie.id}}" role="button">Details</a>
+            </td>
         </tr>
         </tbody>
     </table>
 
-    <a href="/addMovie">Add Movie</a>
-    <a href="/adminPage">Admin Page</a>
-    <a th:if="${#authentication.isAuthenticated()}"
-       th:text="|Log out ${#authentication.name}|" th:href="@{/logout}"
-       class="btn btn-danger"></a>
+    <div>
+        <a class="add-btn" href="/addMovie">Add Movie</a>
+        <a class="admin-btn" href="/adminPage">Admin Page</a>
+        <a class="logout-btn" th:if="${#authentication.isAuthenticated()}"
+           th:text="|Log out ${#authentication.name}|" th:href="@{/logout}"></a>
+    </div>
 </body>
 </html>
