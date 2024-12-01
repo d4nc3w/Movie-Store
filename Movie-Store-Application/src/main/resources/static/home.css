@@ -24,3 +24,11 @@ th {
 tr:hover {
     background-color: aliceblue;
 }
+
+a{
+    color: white;
+    text-decoration: none;
+    border-radius: 20px;
+    background-color: black;
+    padding: 10px;
+}

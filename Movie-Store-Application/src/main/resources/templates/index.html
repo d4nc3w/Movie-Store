@@ -11,7 +11,7 @@
         <thead>
         <tr>
             <th>Id</th>
-            <th>Author</th>
+            <th>Director</th>
             <th>Title</th>
             <th>Price</th>
 <!--            <th>Action</th>-->
@@ -32,5 +32,8 @@
 
     <a href="/addMovie">Add Movie</a>
     <a href="/adminPage">Admin Page</a>
+    <a th:if="${#authentication.isAuthenticated()}"
+       th:text="|Log out ${#authentication.name}|" th:href="@{/logout}"
+       class="btn btn-danger"></a>
 </body>
 </html>
