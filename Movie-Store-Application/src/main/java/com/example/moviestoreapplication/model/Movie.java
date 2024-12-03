@@ -1,14 +1,15 @@
 package com.example.moviestoreapplication.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 public class Movie {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "movie_id")
     public Integer id;
 
     public String Director;
@@ -16,6 +17,9 @@ public class Movie {
     public double Price;
     public boolean isAvailable;
     public String Description;
+
+    @OneToMany(mappedBy = "order", fetch = FetchType.EAGER, cascade = CascadeType.PERSIST)
+    private List<Order> listOfOrders = new ArrayList<>();
 
     public Movie(){}
 
@@ -35,14 +39,6 @@ public class Movie {
         this.id = id;
     }
 
-    public String getDirector() {
-        return Director;
-    }
-
-    public void setDirector(String director) {
-        Director = director;
-    }
-
     public String getTitle() {
         return Title;
     }
@@ -51,12 +47,12 @@ public class Movie {
         Title = title;
     }
 
-    public double getPrice() {
-        return Price;
+    public String getDirector() {
+        return Director;
     }
 
-    public void setPrice(double price) {
-        Price = price;
+    public void setDirector(String director) {
+        Director = director;
     }
 
     public boolean isAvailable() {
@@ -65,6 +61,14 @@ public class Movie {
 
     public void setAvailable(boolean available) {
         isAvailable = available;
+    }
+
+    public double getPrice() {
+        return Price;
+    }
+
+    public void setPrice(double price) {
+        Price = price;
     }
 
     public String getDescription() {

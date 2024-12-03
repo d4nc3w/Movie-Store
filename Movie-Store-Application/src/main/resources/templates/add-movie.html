@@ -23,7 +23,7 @@
     </form>
 
     <div>
-        <a class="add-btn" href="/addMovie">Add Movie</a>
+        <a class="add-btn" href="/">Home</a>
         <a class="admin-btn" href="/adminPage">Admin Page</a>
         <a class="logout-btn" th:if="${#authentication.isAuthenticated()}"
            th:text="|Log out ${#authentication.name}|" th:href="@{/logout}"></a>
