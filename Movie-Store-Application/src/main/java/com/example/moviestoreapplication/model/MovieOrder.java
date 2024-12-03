@@ -1,18 +1,33 @@
 package com.example.moviestoreapplication.model;
 
 import com.example.moviestoreapplication.authentication.User;
+import jakarta.persistence.*;
 
+import java.time.LocalDate;
 import java.util.Date;
 
-public class OrderDTO {
+@Entity
+@Table(name = "`Order`")
+public class Order {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "order_id")
     public Integer id;
-    private Movie movie;
-    private User user;
-    public Date orderDate;
 
-    public OrderDTO(){}
+    @ManyToOne
+    @JoinColumn(name = "movie_id")
+    public Movie movie;
 
-    public OrderDTO(Movie movie, User user, Date orderDate){
+    @ManyToOne
+    @JoinColumn(name = "user_id")
+    public User user;
+
+    public LocalDate orderDate;
+
+    public Order(){}
+
+    public Order(Movie movie, User user, LocalDate orderDate){
         this.movie = movie;
         this.user = user;
         this.orderDate = orderDate;
@@ -34,11 +49,11 @@ public class OrderDTO {
         this.movie = movie;
     }
 
-    public Date getOrderDate() {
+    public LocalDate getOrderDate() {
         return orderDate;
     }
 
-    public void setOrderDate(Date orderDate) {
+    public void setOrderDate(LocalDate orderDate) {
         this.orderDate = orderDate;
     }
 
