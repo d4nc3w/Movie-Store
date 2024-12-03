@@ -8,8 +8,3 @@ values
     ('Denis Villeneuve', 'Bladerunner 2049', '39.99', 'true', 'Blade Runner 2049 is a 2017 science fiction film. A sequel to the 1982 film Blade Runner, the film stars Ryan Gosling and Harrison Ford, with Ana de Armas and others.'),
     ('Denis Villeneuve', 'Arrival', '29.99', 'false', 'Arrival is a 2016 American science fiction film. It is based on the 1998 short story "Story of Your Life" by Ted Chiang and stars Amy Adams, Jeremy Renner, and Forest Whitaker.'),
     ('Denis Villeneuve', 'Dune', '69.99', 'true', 'Dune is 2020 American science film based on book written by Frank Herbert "Dune". It features stars like Zendeya, Jason Mamoa, Timothee Chamalet and Rebecca Ferguson');
-
--- insert into
---     ORDER(USER_ID,MOVIE_ID,ORDER_DATE)
--- values
---     (1, 1, '2021-01-01');

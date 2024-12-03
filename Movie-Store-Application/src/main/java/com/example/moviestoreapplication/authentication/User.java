@@ -1,12 +1,10 @@
 package com.example.moviestoreapplication.authentication;
 
-import com.example.moviestoreapplication.model.Order;
+import com.example.moviestoreapplication.model.MovieOrder;
 import jakarta.persistence.*;
 
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
 
 @Entity
 @Table(name = "App_user")
@@ -14,7 +12,6 @@ public class User {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "user_id")
     private Integer id;
     private String firstName;
     private String lastName;
@@ -23,7 +20,7 @@ public class User {
     private String role;
 
     @OneToMany(mappedBy = "user", fetch = FetchType.EAGER, cascade = CascadeType.PERSIST)
-    private List<Order> listOfOrders = new ArrayList<>();
+    private List<MovieOrder> listOfMovieOrders = new ArrayList<>();
 
     public User() {}
 

@@ -1,28 +1,26 @@
 package com.example.moviestoreapplication.service;
 
-import com.example.moviestoreapplication.model.Movie;
-import com.example.moviestoreapplication.model.MovieDTO;
-import com.example.moviestoreapplication.model.Order;
-import com.example.moviestoreapplication.model.OrderDTO;
+import com.example.moviestoreapplication.model.MovieOrder;
+import com.example.moviestoreapplication.model.MovieOrderDTO;
 import org.springframework.stereotype.Service;
 
 @Service
-public class OrderDTOMapper {
-    public OrderDTO map(Order order){
-        OrderDTO orderDTO = new OrderDTO();
-        orderDTO.setId(order.getId());
-        orderDTO.setMovie(order.getMovie());
-        orderDTO.setUser(order.getUser());
-        orderDTO.setOrderDate(order.getOrderDate());
-        return orderDTO;
+public class MovieOrderDTOMapper {
+    public MovieOrderDTO map(MovieOrder movieOrder){
+        MovieOrderDTO movieOrderDTO = new MovieOrderDTO();
+        movieOrderDTO.setId(movieOrder.getId());
+        movieOrderDTO.setMovie(movieOrder.getMovie());
+        movieOrderDTO.setUser(movieOrder.getUser());
+        movieOrderDTO.setOrderDate(movieOrder.getOrder_Date());
+        return movieOrderDTO;
     }
 
-    public Order map(OrderDTO orderDTO){
-        Order order = new Order();
-        order.setId(orderDTO.getId());
-        order.setMovie(orderDTO.getMovie());
-        order.setUser(orderDTO.getUser());
-        order.setOrderDate(orderDTO.getOrderDate());
-        return order;
+    public MovieOrder map(MovieOrderDTO movieOrderDTO){
+        MovieOrder movieOrder = new MovieOrder();
+        movieOrder.setId(movieOrderDTO.getId());
+        movieOrder.setMovie(movieOrderDTO.getMovie());
+        movieOrder.setUser(movieOrderDTO.getUser());
+        movieOrder.setOrder_Date(movieOrderDTO.getOrderDate());
+        return movieOrder;
     }
 }

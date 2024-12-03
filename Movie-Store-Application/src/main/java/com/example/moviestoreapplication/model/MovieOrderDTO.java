@@ -3,17 +3,16 @@ package com.example.moviestoreapplication.model;
 import com.example.moviestoreapplication.authentication.User;
 
 import java.time.LocalDate;
-import java.util.Date;
 
-public class OrderDTO {
+public class MovieOrderDTO {
     public Integer id;
     private Movie movie;
     private User user;
     public LocalDate orderDate;
 
-    public OrderDTO(){}
+    public MovieOrderDTO(){}
 
-    public OrderDTO(Movie movie, User user, LocalDate orderDate){
+    public MovieOrderDTO(Movie movie, User user, LocalDate orderDate){
         this.movie = movie;
         this.user = user;
         this.orderDate = orderDate;

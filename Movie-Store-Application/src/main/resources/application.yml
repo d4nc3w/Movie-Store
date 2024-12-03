@@ -17,4 +17,4 @@ spring:
     defer-datasource-initialization: true
   sql:
     init:
-      data-locations: classpath:sql-data/*.sql
+      data-locations: classpath:sql-data/movie.sql, classpath:sql-data/users.sql, classpath:sql-data/order.sql

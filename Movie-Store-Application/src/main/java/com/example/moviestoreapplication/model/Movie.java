@@ -9,7 +9,6 @@ import java.util.List;
 public class Movie {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "movie_id")
     public Integer id;
 
     public String Director;
@@ -18,8 +17,8 @@ public class Movie {
     public boolean isAvailable;
     public String Description;
 
-    @OneToMany(mappedBy = "order", fetch = FetchType.EAGER, cascade = CascadeType.PERSIST)
-    private List<Order> listOfOrders = new ArrayList<>();
+    @OneToMany(mappedBy = "movie", fetch = FetchType.EAGER, cascade = CascadeType.PERSIST)
+    private List<MovieOrder> listOfMovieOrders = new ArrayList<>();
 
     public Movie(){}
 

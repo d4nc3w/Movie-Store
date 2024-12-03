@@ -4,11 +4,10 @@ import com.example.moviestoreapplication.authentication.User;
 import jakarta.persistence.*;
 
 import java.time.LocalDate;
-import java.util.Date;
 
 @Entity
-@Table(name = "`Order`")
-public class Order {
+@Table(name = "movie_order")
+public class MovieOrder {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -23,14 +22,14 @@ public class Order {
     @JoinColumn(name = "user_id")
     public User user;
 
-    public LocalDate orderDate;
+    public LocalDate order_Date;
 
-    public Order(){}
+    public MovieOrder(){}
 
-    public Order(Movie movie, User user, LocalDate orderDate){
+    public MovieOrder(Movie movie, User user, LocalDate order_Date){
         this.movie = movie;
         this.user = user;
-        this.orderDate = orderDate;
+        this.order_Date = order_Date;
     }
 
     public Integer getId() {
@@ -49,12 +48,12 @@ public class Order {
         this.movie = movie;
     }
 
-    public LocalDate getOrderDate() {
-        return orderDate;
+    public LocalDate getOrder_Date() {
+        return order_Date;
     }
 
-    public void setOrderDate(LocalDate orderDate) {
-        this.orderDate = orderDate;
+    public void setOrder_Date(LocalDate orderDate) {
+        this.order_Date = orderDate;
     }
 
     public User getUser() {
@@ -64,4 +63,6 @@ public class Order {
     public void setUser(User user) {
         this.user = user;
     }
+
+
 }
