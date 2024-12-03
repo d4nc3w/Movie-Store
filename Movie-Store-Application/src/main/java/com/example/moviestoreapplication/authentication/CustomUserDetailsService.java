@@ -21,7 +21,7 @@ public class CustomUserDetailsService implements UserDetailsService {
                 .map(dto -> User.builder()
                         .username(dto.getEmail())
                         .password(dto.getPassword())
-                        .roles(dto.getRoles().toArray(String[]::new))
+                        .roles(dto.getRole())
                         .build())
                 .orElseThrow(() -> new UsernameNotFoundException("User " + username + " not found"));
     }

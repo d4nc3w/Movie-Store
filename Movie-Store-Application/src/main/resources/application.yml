@@ -18,7 +18,3 @@ spring:
   sql:
     init:
       data-locations: classpath:sql-data/*.sql
-#  security:
-#    user:
-#      name: admin
-#      password: admin

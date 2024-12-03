@@ -11,10 +11,7 @@ public class UserDTOMapper {
         return new UserDTO(
                 user.getEmail(),
                 user.getPassword(),
-                user.getRoles()
-                        .stream()
-                        .map(UserRole::getName)
-                        .collect(Collectors.toSet())
+                user.getRole()
         );
     }
 }

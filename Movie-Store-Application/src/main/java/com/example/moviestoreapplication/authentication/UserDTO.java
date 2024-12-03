@@ -5,13 +5,13 @@ import java.util.Set;
 public class UserDTO {
 
     private String email;
-    private Set<String> roles;
     private String password;
+    private String role;
 
-    public UserDTO(String email, String password, Set<String> roles){
+    public UserDTO(String email, String password, String role){
         this.email = email;
         this.password = password;
-        this.roles = roles;
+        this.role = role;
     }
 
     public String getEmail() {
@@ -30,11 +30,11 @@ public class UserDTO {
         this.password = password;
     }
 
-    public Set<String> getRoles() {
-        return roles;
+    public String getRole() {
+        return role;
     }
 
-    public void setRoles(Set<String> roles) {
-        this.roles = roles;
+    public void setRole(String role) {
+        this.role = role;
     }
 }
