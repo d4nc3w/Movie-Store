@@ -5,6 +5,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.Set;
 
 @Service
 public class UserService {
@@ -21,5 +22,17 @@ public class UserService {
 
     public List<User> findAllUsers(){
         return userRepository.findAll();
+    }
+
+    public void deleteUserByEmail(String email){
+        userRepository.deleteByEmail(email);
+    }
+
+    public String findRolesByEmail(String email){
+        Optional<UserDTO> user = findUserCredentialsByEmail(email);
+        if (user.isPresent()){
+            return user.get().getRole();
+        }
+        return "";
     }
 }
