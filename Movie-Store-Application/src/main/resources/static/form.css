@@ -5,11 +5,6 @@ body {
     text-align: center;
 }
 
-span {
-    color: red;
-    padding: 10px;
-}
-
 label {
     font-size: 20px;
     padding-bottom: 3px;

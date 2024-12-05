@@ -35,4 +35,12 @@ public class UserService {
         }
         return "";
     }
+
+    public void updateUserRole(String email, String role) {
+        Optional<User> user = userRepository.findByEmail(email);
+        if (user.isPresent()){
+            user.get().setRole(role);
+            userRepository.save(user.get());
+        }
+    }
 }

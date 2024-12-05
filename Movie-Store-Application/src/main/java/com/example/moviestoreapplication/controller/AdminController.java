@@ -5,6 +5,7 @@ import com.example.moviestoreapplication.service.MovieService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -35,6 +36,14 @@ public class AdminController {
         model.addAttribute("role", role);
         return "edit-user";
     }
+
+    @PostMapping("/editUser")
+    public String editUser(@RequestParam String email, @RequestParam String role){
+        userService.updateUserRole(email, role);
+        return "redirect:/adminPage";
+    }
+
+
 
 
 }
