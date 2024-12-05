@@ -43,7 +43,9 @@ public class AdminController {
         return "redirect:/adminPage";
     }
 
-
-
-
+    @GetMapping("/deleteUser")
+    public String deleteUser(@RequestParam String email){
+        userService.deleteUserByEmail(email);
+        return "redirect:/adminPage";
+    }
 }

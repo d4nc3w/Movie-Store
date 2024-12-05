@@ -1,6 +1,7 @@
 package com.example.moviestoreapplication.authentication;
 
 import com.example.moviestoreapplication.repository.UserRepository;
+import jakarta.transaction.Transactional;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -24,6 +25,7 @@ public class UserService {
         return userRepository.findAll();
     }
 
+    @Transactional
     public void deleteUserByEmail(String email){
         userRepository.deleteByEmail(email);
     }
@@ -36,6 +38,7 @@ public class UserService {
         return "";
     }
 
+    @Transactional
     public void updateUserRole(String email, String role) {
         Optional<User> user = userRepository.findByEmail(email);
         if (user.isPresent()){
