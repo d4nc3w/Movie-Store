@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head layout:fragment="myHead">
+  <meta charset="UTF-8">
+  <title layout:title-pattern="$CONTENT_TITLE">Book Library</title>
+  <link rel="stylesheet" type="text/css" th:href="@{/stylesheets/layout.css}">
+</head>
+<body>
+<header th:replace="fragments :: header"></header>
+<main layout:fragment="content"></main>
+<footer th:replace="fragments :: footer"></footer>
+</body>
+</html>

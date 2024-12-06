@@ -1,0 +1,14 @@
+.logo{
+    height: 10vh;
+    flex: auto;
+}
+
+.footer {
+    position: relative;
+}
+
+.container{
+    margin: auto;
+    width: 70%;
+    text-align: center;
+}

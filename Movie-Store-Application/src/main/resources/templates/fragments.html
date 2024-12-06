@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:fragment="myHead">
+    <meta charset="UTF-8">
+</head>
+<body>
+<div th:fragment="header">
+    <img class="logo" src="../static/images/logo.png" th:src="@{/images/logo.png}">
+</div>
+<div th:fragment="footer">
+    <br><br>
+    <a th:if="${#authentication.isAuthenticated()}"
+       th:text="|Log out ${#authentication.name}|" th:href="@{/logout}"
+       class="btn btn-danger"></a>
+    <br><br>
+    <p>TPO @ PJAIT &copy;2024</p>
+    <br>
+</div>
+</body>
+</html>
