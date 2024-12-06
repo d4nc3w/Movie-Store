@@ -29,8 +29,8 @@
                 <td th:text="${movie.title}"></td>
                 <td th:text="${movie.price}"></td>
                 <td>
-                    <a class="delete-btn">Delete</a>
-                    <a class="edit-btn">Edit</a>
+                    <a class="delete-btn" th:href="@{/deleteMovie(id=${movie.id})}" role="button">Delete this movie</a>
+                    <a class="edit-btn" th:href="@{/editMovie(id=${movie.id})}" role="button">Edit this movie</a>
                 </td>
             </tr>
             </tbody>

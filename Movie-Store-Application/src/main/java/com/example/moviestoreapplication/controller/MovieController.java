@@ -4,10 +4,7 @@ import com.example.moviestoreapplication.model.MovieDTO;
 import com.example.moviestoreapplication.service.MovieService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 
 @Controller
 @RequestMapping("/")
@@ -40,6 +37,18 @@ public class MovieController {
     public String getBook(@RequestParam Integer id, Model model){
         movieService.findMovieById(id).ifPresent(movie -> model.addAttribute("movie", movie));
         return "movie";
+    }
+
+    @GetMapping("editMovie")
+    public String updateBookForm(@RequestParam Integer id, Model model) {
+        movieService.findMovieById(id).ifPresent(movie -> model.addAttribute("movie", movie));
+        return "edit-movie";
+    }
+
+    @PostMapping("editMovie")
+    public String editBook(@ModelAttribute("movie") MovieDTO movieDTO) {
+        movieService.updateMovie(movieDTO);
+        return "redirect:/";
     }
 
 

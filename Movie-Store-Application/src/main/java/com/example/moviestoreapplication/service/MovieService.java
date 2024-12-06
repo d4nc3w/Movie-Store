@@ -36,4 +36,8 @@ public class MovieService {
     public void addMovie(MovieDTO movieDTO){
         movieRepository.save(movieDTOMapper.map(movieDTO));
     }
+
+    public void updateMovie(MovieDTO movieDTO) {
+        movieRepository.save(movieDTOMapper.map(movieDTO));
+    }
 }
