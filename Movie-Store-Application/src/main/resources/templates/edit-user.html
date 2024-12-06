@@ -1,10 +1,14 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout}">
 <head>
     <meta charset="UTF-8">
     <title>Edit User</title>
     <link rel="stylesheet" href="/form.css">
+    <link rel="stylesheet" href="/layout.css">
 </head>
+<main layout:fragment="content">
 <body>
 <h1>Edit User</h1>
 <div th:if="${user}">
@@ -24,4 +28,5 @@
     </form>
 </div>
 </body>
+</main>
 </html>

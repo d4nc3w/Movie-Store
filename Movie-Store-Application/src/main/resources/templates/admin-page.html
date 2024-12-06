@@ -1,10 +1,14 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout}">
 <head>
     <meta charset="UTF-8">
     <title>Admin Page</title>
     <link rel="stylesheet" href="/admin.css">
+    <link rel="stylesheet" href="/layout.css">
 </head>
+<main layout:fragment="content">
 <body>
     <h1>Admin Page</h1>
     <table>
@@ -38,7 +42,6 @@
     </table>
     <a class="add-btn" href="/addUser">Add User</a>
     <a class="home-btn" href="/">Back to Movie List</a>
-    <a class="logout-btn" th:if="${#authentication.isAuthenticated()}"
-       th:text="|Log out ${#authentication.name}|" th:href="@{/logout}"></a>
 </body>
+</main>
 </html>

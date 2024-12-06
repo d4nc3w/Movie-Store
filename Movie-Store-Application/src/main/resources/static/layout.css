@@ -12,3 +12,38 @@
     width: 70%;
     text-align: center;
 }
+
+a{
+    color: white;
+    text-decoration: none;
+    border-radius: 20px;
+    padding: 10px;
+}
+
+.home-btn{
+    background-color: black;
+}
+
+.add-btn{
+    background-color: darkgreen;
+}
+
+.logout-btn{
+    background-color: darkred;
+}
+
+.admin-btn{
+    background-color: darkkhaki;
+}
+
+.details-btn{
+    background-color: darkblue;
+}
+
+.edit-btn{
+    background-color: darkorange;
+}
+
+.delete-btn{
+    background-color: darkred;
+}

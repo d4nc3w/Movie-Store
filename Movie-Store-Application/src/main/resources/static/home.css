@@ -12,6 +12,7 @@ table {
     background-color: white;
     box-shadow: 0 0 10px;
 }
+
 th, td {
     padding: 10px;
     text-align: left;
@@ -23,27 +24,4 @@ th {
 
 tr:hover {
     background-color: aliceblue;
-}
-
-a{
-    color: white;
-    text-decoration: none;
-    border-radius: 20px;
-    padding: 10px;
-}
-
-.details-btn{
-    background-color: darkblue;
-}
-
-.admin-btn{
-    background-color: darkkhaki;
-}
-
-.add-btn{
-    background-color: darkgreen;
-}
-
-.logout-btn{
-    background-color: darkred;
 }

@@ -1,10 +1,14 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout}">
 <head>
     <meta charset="UTF-8">
     <title>Add Movie</title>
     <link rel="stylesheet" href="/form.css">
+    <link rel="stylesheet" href="/layout.css">
 </head>
+<main layout:fragment="content">
 <body>
     <h1>Add Movie</h1>
     <form th:action="@{/addMovie}" th:object="${movie}" method="post">
@@ -23,10 +27,9 @@
     </form>
 
     <div>
-        <a class="add-btn" href="/">Home</a>
+        <a class="home-btn" href="/">Home</a>
         <a class="admin-btn" href="/adminPage">Admin Page</a>
-        <a class="logout-btn" th:if="${#authentication.isAuthenticated()}"
-           th:text="|Log out ${#authentication.name}|" th:href="@{/logout}"></a>
     </div>
 </body>
+</main>
 </html>
