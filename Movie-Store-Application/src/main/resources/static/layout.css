@@ -13,6 +13,17 @@
     text-align: center;
 }
 
+body {
+    padding: 50px;
+    font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+    background: linear-gradient(90deg, mediumpurple, dodgerblue);
+    text-align: center;
+}
+
+h1{
+    text-align: center;
+}
+
 a{
     color: white;
     text-decoration: none;
