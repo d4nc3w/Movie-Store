@@ -17,7 +17,7 @@ public class Movie {
     public boolean isAvailable;
     public String Description;
 
-    @OneToMany(mappedBy = "movie", fetch = FetchType.EAGER, cascade = CascadeType.PERSIST)
+    @OneToMany(mappedBy = "movie", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<MovieOrder> listOfMovieOrders = new ArrayList<>();
 
     public Movie(){}

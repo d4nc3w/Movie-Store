@@ -19,7 +19,7 @@ public class User {
     private String password;
     private String role;
 
-    @OneToMany(mappedBy = "user", fetch = FetchType.EAGER, cascade = CascadeType.PERSIST)
+    @OneToMany(mappedBy = "user", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     private List<MovieOrder> listOfMovieOrders = new ArrayList<>();
 
     public User() {}
