@@ -24,6 +24,8 @@
             <th>Address</th>
             <th>City</th>
             <th>Card Number</th>
+            <th>Movie Id</th>
+            <th>User Id</th>
         </tr>
         </thead>
         <tbody>
@@ -38,6 +40,9 @@
             <td th:text="${movieOrder.address}"></td>
             <td th:text="${movieOrder.city}"></td>
             <td th:text="${movieOrder.card_Number}"></td>
+            <td th:text="${movieOrder.movie.id}"></td>
+            <td th:text="${movieOrder.user.id}"></td>
+
         </tr>
         </tbody>
     </table>

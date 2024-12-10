@@ -26,16 +26,16 @@ public class MovieOrder {
     public String FirstName;
     public String LastName;
     public String Email;
+    public LocalDate order_Date;
     public String Address;
     public String City;
     public double Price;
     public String Card_Number;
 
-    public LocalDate order_Date;
 
     public MovieOrder(){}
 
-    public MovieOrder(Movie movie, User user, LocalDate order_Date, String FirstName, String LastName, String Email, String Address, String City, double Price, String Card_Number, String Title){
+    public MovieOrder(Movie movie, User user, LocalDate order_Date, String FirstName, String LastName, String Email, String Address, String City, double Price, String Card_Number, String Title, LocalDate orderDate){
         this.movie = movie;
         this.user = user;
         this.Title = Title;

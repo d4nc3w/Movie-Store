@@ -1,5 +1,6 @@
 package com.example.moviestoreapplication.service;
 
+import com.example.moviestoreapplication.authentication.UserService;
 import com.example.moviestoreapplication.model.Movie;
 import com.example.moviestoreapplication.model.MovieDTO;
 import com.example.moviestoreapplication.model.MovieOrder;
@@ -9,22 +10,26 @@ import com.example.moviestoreapplication.repository.MovieRepository;
 import jakarta.transaction.Transactional;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
 @Service
 public class MovieService {
+    private final UserService userService;
     private MovieRepository movieRepository;
     private MovieOrderRepository movieOrderRepository;
     private MovieDTOMapper movieDTOMapper;
     private MovieOrderDTOMapper movieOrderDTOMapper;
 
-    public MovieService(MovieRepository movieRepository, MovieDTOMapper movieDTOMapper, MovieOrderRepository movieOrderRepository, MovieOrderDTOMapper movieOrderDTOMapper){
+    public MovieService(MovieRepository movieRepository, MovieDTOMapper movieDTOMapper, MovieOrderRepository movieOrderRepository, MovieOrderDTOMapper movieOrderDTOMapper, UserService userService){
         this.movieRepository = movieRepository;
         this.movieDTOMapper = movieDTOMapper;
         this.movieOrderRepository = movieOrderRepository;
         this.movieOrderDTOMapper = movieOrderDTOMapper;
+        this.userService = userService;
     }
 
     public List<MovieDTO> getAllMovies(){
@@ -58,8 +63,23 @@ public class MovieService {
     }
 
     @Transactional
-    public void orderMovie(MovieOrderDTO movieOrderDTO) {
-        movieOrderRepository.save(movieOrderDTOMapper.map(movieOrderDTO));
+    public void orderMovie(MovieOrderDTO movieOrderDTO, Integer movieID) {
+        Movie movie = movieRepository.findById(movieID)
+                .orElseThrow(() -> new RuntimeException("Movie not found"));
+
+        MovieOrder movieOrder = new MovieOrder();
+        movieOrder.setMovie(movie);
+        movieOrder.setUser(userService.getCurrentUser());
+        movieOrder.setTitle(movie.getTitle());
+        movieOrder.setOrder_Date(LocalDate.now());
+        movieOrder.setFirstName(movieOrderDTO.getFirstName());
+        movieOrder.setLastName(movieOrderDTO.getLastName());
+        movieOrder.setEmail(userService.getCurrentUserEmail());
+        movieOrder.setAddress(movieOrderDTO.getAddress());
+        movieOrder.setCity(movieOrderDTO.getCity());
+        movieOrder.setPrice(movie.Price);
+        movieOrder.setCard_Number(movieOrderDTO.getCard_Number());
+        movieOrderRepository.save(movieOrder);
     }
 
     public List<MovieOrderDTO> getAllOrders(){

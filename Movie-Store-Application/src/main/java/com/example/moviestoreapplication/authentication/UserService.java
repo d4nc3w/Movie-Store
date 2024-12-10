@@ -2,6 +2,8 @@ package com.example.moviestoreapplication.authentication;
 
 import com.example.moviestoreapplication.repository.UserRepository;
 import jakarta.transaction.Transactional;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -44,5 +46,19 @@ public class UserService {
             user.get().setRole(role);
             userRepository.save(user.get());
         }
+    }
+
+    public String getCurrentUserEmail(){
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        UserDTO userDTO = findUserCredentialsByEmail(authentication.getName()).get();
+        String currentPrincipalName = authentication.getName();
+        return currentPrincipalName;
+    }
+
+    public User getCurrentUser(){
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        UserDTO userDTO = findUserCredentialsByEmail(authentication.getName()).get();
+        User user = userRepository.findByEmail(userDTO.getEmail()).get();
+        return user;
     }
 }

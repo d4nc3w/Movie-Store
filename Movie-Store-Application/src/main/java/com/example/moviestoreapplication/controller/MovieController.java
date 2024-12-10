@@ -61,12 +61,13 @@ public class MovieController {
     @GetMapping("orderMovie")
     public String orderMovieForm(@RequestParam  Integer id, Model model){
         movieService.findMovieById(id).ifPresent(movie -> model.addAttribute("movie", movie));
+        model.addAttribute("movieOrder", new MovieOrderDTO());
         return "order-movie";
     }
 
     @PostMapping("orderMovie")
-    public String orderMovie(@ModelAttribute("movieOrder") MovieOrderDTO movieOrderDTO){
-        movieService.orderMovie(movieOrderDTO);
+    public String orderMovie(@ModelAttribute("movieOrder") MovieOrderDTO movieOrderDTO, @RequestParam("movieId") Integer movieId) {
+        movieService.orderMovie(movieOrderDTO, movieId);
         return "redirect:/";
     }
 }
