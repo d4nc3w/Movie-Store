@@ -22,14 +22,29 @@ public class MovieOrder {
     @JoinColumn(name = "user_id")
     public User user;
 
+    public String FirstName;
+    public String LastName;
+    public String Email;
+    public String Address;
+    public String City;
+    public double Price;
+    public String Card_Number;
+
     public LocalDate order_Date;
 
     public MovieOrder(){}
 
-    public MovieOrder(Movie movie, User user, LocalDate order_Date){
+    public MovieOrder(Movie movie, User user, LocalDate order_Date, String FirstName, String LastName, String Email, String Address, String City, double Price, String Card_Number){
         this.movie = movie;
         this.user = user;
         this.order_Date = order_Date;
+        this.FirstName = FirstName;
+        this.LastName = LastName;
+        this.Email = Email;
+        this.Address = Address;
+        this.City = City;
+        this.Price = Price;
+        this.Card_Number = Card_Number;
     }
 
     public Integer getId() {
@@ -64,5 +79,59 @@ public class MovieOrder {
         this.user = user;
     }
 
+    public String getFirstName() {
+        return FirstName;
+    }
 
+    public void setFirstName(String firstName) {
+        FirstName = firstName;
+    }
+
+    public String getLastName() {
+        return LastName;
+    }
+
+    public void setLastName(String lastName) {
+        LastName = lastName;
+    }
+
+    public String getEmail() {
+        return Email;
+    }
+
+    public void setEmail(String email) {
+        Email = email;
+    }
+
+    public String getAddress() {
+        return Address;
+    }
+
+    public void setAddress(String address) {
+        Address = address;
+    }
+
+    public String getCity() {
+        return City;
+    }
+
+    public void setCity(String city) {
+        City = city;
+    }
+
+    public double getPrice() {
+        return Price;
+    }
+
+    public void setPrice(double price) {
+        Price = price;
+    }
+
+    public String getCard_Number() {
+        return Card_Number;
+    }
+
+    public void setCard_Number(String card_Number) {
+        Card_Number = card_Number;
+    }
 }

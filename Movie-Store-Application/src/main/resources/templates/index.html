@@ -29,6 +29,7 @@
             <td th:text="${movie.price}"></td>
             <td>
                 <a class="details-btn" th:href="@{'/movie?id=' + ${movie.id}}" role="button">Details</a>
+                <a class="home-btn" th:href="@{'/orderMovie?id=' + ${movie.id}}" role="button">Order</a>
             </td>
         </tr>
         </tbody>

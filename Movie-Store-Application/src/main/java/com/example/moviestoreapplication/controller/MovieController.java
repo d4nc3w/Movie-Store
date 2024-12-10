@@ -1,6 +1,7 @@
 package com.example.moviestoreapplication.controller;
 
 import com.example.moviestoreapplication.model.MovieDTO;
+import com.example.moviestoreapplication.model.MovieOrderDTO;
 import com.example.moviestoreapplication.service.MovieService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -54,6 +55,18 @@ public class MovieController {
     @GetMapping("deleteMovie")
     public String deleteMovie(@RequestParam Integer id) {
         movieService.deleteMovie(id);
+        return "redirect:/";
+    }
+
+    @GetMapping("orderMovie")
+    public String orderMovieForm(@RequestParam  Integer id, Model model){
+        movieService.findMovieById(id).ifPresent(movie -> model.addAttribute("movie", movie));
+        return "order-movie";
+    }
+
+    @PostMapping("orderMovie")
+    public String orderMovie(@ModelAttribute("movieOrder") MovieOrderDTO movieOrderDTO){
+        movieService.orderMovie(movieOrderDTO);
         return "redirect:/";
     }
 }

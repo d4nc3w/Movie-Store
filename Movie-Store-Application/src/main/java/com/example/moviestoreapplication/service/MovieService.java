@@ -2,6 +2,7 @@ package com.example.moviestoreapplication.service;
 
 import com.example.moviestoreapplication.model.Movie;
 import com.example.moviestoreapplication.model.MovieDTO;
+import com.example.moviestoreapplication.model.MovieOrderDTO;
 import com.example.moviestoreapplication.repository.MovieOrderRepository;
 import com.example.moviestoreapplication.repository.MovieRepository;
 import jakarta.transaction.Transactional;
@@ -16,11 +17,13 @@ public class MovieService {
     private MovieRepository movieRepository;
     private MovieOrderRepository movieOrderRepository;
     private MovieDTOMapper movieDTOMapper;
+    private MovieOrderDTOMapper movieOrderDTOMapper;
 
-    public MovieService(MovieRepository movieRepository, MovieDTOMapper movieDTOMapper, MovieOrderRepository movieOrderRepository){
+    public MovieService(MovieRepository movieRepository, MovieDTOMapper movieDTOMapper, MovieOrderRepository movieOrderRepository, MovieOrderDTOMapper movieOrderDTOMapper){
         this.movieRepository = movieRepository;
         this.movieDTOMapper = movieDTOMapper;
         this.movieOrderRepository = movieOrderRepository;
+        this.movieOrderDTOMapper = movieOrderDTOMapper;
     }
 
     public List<MovieDTO> getAllMovies(){
@@ -51,5 +54,10 @@ public class MovieService {
     public void deleteMovie(Integer id) {
         movieOrderRepository.deleteAllByMovieId(id);
         movieRepository.deleteById(id);
+    }
+
+    @Transactional
+    public void orderMovie(MovieOrderDTO movieOrderDTO) {
+        movieOrderRepository.save(movieOrderDTOMapper.map(movieOrderDTO));
     }
 }

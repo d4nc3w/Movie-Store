@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout}">
+<head>
+    <meta charset="UTF-8">
+    <title>Order Movie</title>
+    <link rel="stylesheet" href="/layout.css">
+</head>
+<main layout:fragment="content">
+<body>
+    <div th:if="${movie}">
+    <h1>Order Movie</h1>
+    <h2>Movie Title: <span th:text="${movie.title}"></span></h2>
+        <form th:action="@{/orderMovie}" method="post" th:object="${movie}">
+            <input type="hidden" th:field="*{id}" />
+            <label for="director">Director:</label>
+            <input type="text" id="director" th:field="*{director}" required>
+            <label for="title">Title:</label>
+            <input type="text" id="title" th:field="*{title}" required>
+            <label for="price">Price:</label>
+            <input type="number" id="price" th:field="*{price}" required>
+            <button type="submit">Save</button>
+        </form>
+    </div>
+    <div th:unless="${movie}">
+        <h1>Movie wasn't found </h1>
+    </div>
+</body>
+</main>
+</html>

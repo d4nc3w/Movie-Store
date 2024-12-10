@@ -12,6 +12,13 @@ public class MovieOrderDTOMapper {
         movieOrderDTO.setMovie(movieOrder.getMovie());
         movieOrderDTO.setUser(movieOrder.getUser());
         movieOrderDTO.setOrderDate(movieOrder.getOrder_Date());
+        movieOrderDTO.setFirstName(movieOrder.getFirstName());
+        movieOrderDTO.setLastName(movieOrder.getLastName());
+        movieOrderDTO.setEmail(movieOrder.getEmail());
+        movieOrderDTO.setAddress(movieOrder.getAddress());
+        movieOrderDTO.setCity(movieOrder.getCity());
+        movieOrderDTO.setPrice(movieOrder.getPrice());
+        movieOrderDTO.setCard_Number(movieOrder.getCard_Number());
         return movieOrderDTO;
     }
 
@@ -21,6 +28,13 @@ public class MovieOrderDTOMapper {
         movieOrder.setMovie(movieOrderDTO.getMovie());
         movieOrder.setUser(movieOrderDTO.getUser());
         movieOrder.setOrder_Date(movieOrderDTO.getOrderDate());
+        movieOrder.setFirstName(movieOrderDTO.getFirstName());
+        movieOrder.setLastName(movieOrderDTO.getLastName());
+        movieOrder.setEmail(movieOrderDTO.getEmail());
+        movieOrder.setAddress(movieOrderDTO.getAddress());
+        movieOrder.setCity(movieOrderDTO.getCity());
+        movieOrder.setPrice(movieOrderDTO.getPrice());
+        movieOrder.setCard_Number(movieOrderDTO.getCard_Number());
         return movieOrder;
     }
 }
