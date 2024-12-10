@@ -2,6 +2,7 @@ package com.example.moviestoreapplication.service;
 
 import com.example.moviestoreapplication.model.Movie;
 import com.example.moviestoreapplication.model.MovieDTO;
+import com.example.moviestoreapplication.model.MovieOrder;
 import com.example.moviestoreapplication.model.MovieOrderDTO;
 import com.example.moviestoreapplication.repository.MovieOrderRepository;
 import com.example.moviestoreapplication.repository.MovieRepository;
@@ -59,5 +60,15 @@ public class MovieService {
     @Transactional
     public void orderMovie(MovieOrderDTO movieOrderDTO) {
         movieOrderRepository.save(movieOrderDTOMapper.map(movieOrderDTO));
+    }
+
+    public List<MovieOrderDTO> getAllOrders(){
+        Iterable<MovieOrder> orders = movieOrderRepository.findAll();
+        List<MovieOrderDTO> ordersDTO = new ArrayList<>();
+        for(MovieOrder m : orders){
+            movieOrderDTOMapper.map(m);
+            ordersDTO.add(movieOrderDTOMapper.map(m));
+        }
+        return ordersDTO;
     }
 }

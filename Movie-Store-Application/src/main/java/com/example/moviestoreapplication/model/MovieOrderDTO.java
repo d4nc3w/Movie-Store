@@ -8,6 +8,7 @@ public class MovieOrderDTO {
     public Integer id;
     private Movie movie;
     private User user;
+    public String Title;
     public String FirstName;
     public String LastName;
     public String Email;
@@ -19,10 +20,11 @@ public class MovieOrderDTO {
 
     public MovieOrderDTO(){}
 
-    public MovieOrderDTO(Movie movie, User user, LocalDate orderDate, String FirstName, String LastName, String Email, String Address, String City, double Price, String Card_Number){
+    public MovieOrderDTO(Movie movie, User user, LocalDate orderDate, String FirstName, String LastName, String Email, String Address, String City, double Price, String Card_Number, String Title){
         this.movie = movie;
         this.user = user;
         this.orderDate = orderDate;
+        this.Title = Title;
         this.FirstName = FirstName;
         this.LastName = LastName;
         this.Email = Email;
@@ -118,5 +120,13 @@ public class MovieOrderDTO {
 
     public void setCity(String city) {
         City = city;
+    }
+
+    public String getTitle() {
+        return Title;
+    }
+
+    public void setTitle(String title) {
+        Title = title;
     }
 }

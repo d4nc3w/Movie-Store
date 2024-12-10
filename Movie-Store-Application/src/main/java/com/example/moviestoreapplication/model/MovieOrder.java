@@ -22,6 +22,7 @@ public class MovieOrder {
     @JoinColumn(name = "user_id")
     public User user;
 
+    public String Title;
     public String FirstName;
     public String LastName;
     public String Email;
@@ -34,9 +35,10 @@ public class MovieOrder {
 
     public MovieOrder(){}
 
-    public MovieOrder(Movie movie, User user, LocalDate order_Date, String FirstName, String LastName, String Email, String Address, String City, double Price, String Card_Number){
+    public MovieOrder(Movie movie, User user, LocalDate order_Date, String FirstName, String LastName, String Email, String Address, String City, double Price, String Card_Number, String Title){
         this.movie = movie;
         this.user = user;
+        this.Title = Title;
         this.order_Date = order_Date;
         this.FirstName = FirstName;
         this.LastName = LastName;
@@ -133,5 +135,13 @@ public class MovieOrder {
 
     public void setCard_Number(String card_Number) {
         Card_Number = card_Number;
+    }
+
+    public String getTitle() {
+        return Title;
+    }
+
+    public void setTitle(String title) {
+        Title = title;
     }
 }

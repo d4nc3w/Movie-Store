@@ -12,6 +12,7 @@ public class MovieOrderDTOMapper {
         movieOrderDTO.setMovie(movieOrder.getMovie());
         movieOrderDTO.setUser(movieOrder.getUser());
         movieOrderDTO.setOrderDate(movieOrder.getOrder_Date());
+        movieOrderDTO.setTitle(movieOrder.getTitle());
         movieOrderDTO.setFirstName(movieOrder.getFirstName());
         movieOrderDTO.setLastName(movieOrder.getLastName());
         movieOrderDTO.setEmail(movieOrder.getEmail());
@@ -28,6 +29,7 @@ public class MovieOrderDTOMapper {
         movieOrder.setMovie(movieOrderDTO.getMovie());
         movieOrder.setUser(movieOrderDTO.getUser());
         movieOrder.setOrder_Date(movieOrderDTO.getOrderDate());
+        movieOrder.setTitle(movieOrderDTO.getTitle());
         movieOrder.setFirstName(movieOrderDTO.getFirstName());
         movieOrder.setLastName(movieOrderDTO.getLastName());
         movieOrder.setEmail(movieOrderDTO.getEmail());

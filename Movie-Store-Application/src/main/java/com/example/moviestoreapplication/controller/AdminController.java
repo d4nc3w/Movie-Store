@@ -48,4 +48,10 @@ public class AdminController {
         userService.deleteUserByEmail(email);
         return "redirect:/adminPage";
     }
+
+    @GetMapping("/orderList")
+    public String orderList(Model model){
+        model.addAttribute("orders", movieService.getAllOrders());
+        return "order-list";
+    }
 }
