@@ -28,3 +28,20 @@ button{
     margin: 20px auto;
     color: white;
 }
+
+
+span{
+    color: red;
+}
+
+span[id$="error"] {
+    color: red;
+    font-size: 0.9em;
+    margin-top: 5px;
+    display: block;
+}
+
+.error {
+    border: 2px solid red;
+    outline: none;
+}
