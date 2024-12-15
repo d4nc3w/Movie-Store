@@ -6,21 +6,33 @@
     <meta charset="UTF-8">
     <title>Edit Movie</title>
     <link rel="stylesheet" type="text/css" href="layout.css">
-    <link rel="stylesheet" href="form.css">
+    <link rel="stylesheet" type="text/css" href="form.css">
+    <script src="/javascript/movieValidation.js"  type="application/javascript" defer></script>
 </head>
 <body>
 <main layout:fragment="content">
     <div th:if="${movie}">
     <h1>Edit Movie</h1>
-    <form th:action="@{/editMovie}" method="post" th:object="${movie}">
+    <form novalidate th:action="@{/editMovie}" method="post" th:object="${movie}">
         <input type="hidden" th:field="*{id}" />
-        <label for="director">Director:</label>
-        <input type="text" id="director" th:field="*{director}" required>
         <label for="title">Title:</label>
         <input type="text" id="title" th:field="*{title}" required>
+        <span id="title_error"></span>
+
+        <label for="director">Director:</label>
+        <input type="text" id="director" th:field="*{director}" required>
+        <span id="director_error"></span>
+
         <label for="price">Price:</label>
         <input type="number" id="price" th:field="*{price}" required>
+        <span id="price_error"></span>
+
+        <label for="description">Description</label>
+        <textarea id="description" th:field="*{description}" required></textarea>
+        <span id="description_error"></span>
+
         <button type="submit">Save</button>
+        <span id="anyError"></span>
     </form>
     <a class="home-btn" href="/">Back to Movie List</a>
     </div>
