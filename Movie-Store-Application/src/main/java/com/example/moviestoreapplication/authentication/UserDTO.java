@@ -31,7 +31,7 @@ public class UserDTO {
     }
 
     public String getRole() {
-        return role;
+        return  role;
     }
 
     public void setRole(String role) {

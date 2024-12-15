@@ -4,6 +4,8 @@ import com.example.moviestoreapplication.repository.UserRepository;
 import jakarta.transaction.Transactional;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.crypto.password.MessageDigestPasswordEncoder;
+import org.springframework.security.crypto.password.Pbkdf2PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -60,5 +62,16 @@ public class UserService {
         UserDTO userDTO = findUserCredentialsByEmail(authentication.getName()).get();
         User user = userRepository.findByEmail(userDTO.getEmail()).get();
         return user;
+    }
+
+    @Transactional
+    public void registerClient(UserRegisterDTO userDTO){
+        User user = new User();
+        user.setFirstName(userDTO.getFirstName());
+        user.setLastName(userDTO.getLastName());
+        user.setEmail(userDTO.getEmail());
+        user.setPassword("{SHA-256}" + new MessageDigestPasswordEncoder("SHA-256").encode(userDTO.getPassword()));
+        user.setRole("CLIENT");
+        userRepository.save(user);
     }
 }
