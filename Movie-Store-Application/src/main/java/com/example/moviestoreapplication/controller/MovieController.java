@@ -70,4 +70,10 @@ public class MovieController {
         movieService.orderMovie(movieOrderDTO, movieId);
         return "redirect:/";
     }
+
+    @GetMapping("displayFullTable")
+    public String displayFullTable(Model model){
+        model.addAttribute("movies", movieService.getAllMovies());
+        return "full-table";
+    }
 }

@@ -16,3 +16,7 @@ th {
 tr:hover {
     background-color: aliceblue;
 }
+
+.movie-container{
+    margin-bottom: 50px;
+}
