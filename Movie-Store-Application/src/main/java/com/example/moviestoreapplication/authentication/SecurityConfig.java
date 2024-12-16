@@ -16,6 +16,7 @@ public class SecurityConfig {
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         http.authorizeHttpRequests(request -> request
                 .requestMatchers("/register/**", "/confirm").permitAll()
+                .requestMatchers("/css/**", "/javascript/**", "/images/**").permitAll()
                 .requestMatchers("/images/background.png", "/images/logo.png").permitAll()
                 .requestMatchers("/adminPage/**").hasAnyRole("ADMIN")
                 .requestMatchers("/deleteMovie").hasAnyRole("EMPLOYEE", "ADMIN")
@@ -38,6 +39,6 @@ public class SecurityConfig {
 
     @Bean
     public WebSecurityCustomizer webSecurityCustomizer() {
-        return web -> web.ignoring().requestMatchers("/images/background.jpg", "/images/logo.png");
+        return web -> web.ignoring().requestMatchers("/images/background.png", "/images/logo.png");
     }
 }

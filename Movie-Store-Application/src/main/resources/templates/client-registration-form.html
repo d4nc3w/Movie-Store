@@ -3,15 +3,13 @@
 <head>
     <meta charset="utf-8">
     <title>Client Registration</title>
-<!--    <link rel="stylesheet" href="/login.css">-->
-    <link rel="stylesheet" href="/layout.css">
+    <script src="/javascript/userValidation.js"  type="application/javascript" defer></script>
     <style>
         body {
             padding-top: 40px;
             padding-bottom: 40px;
             background-color: ghostwhite;
             font-family: Arial, sans-serif;
-            margin: 0;
         }
 
         .container {
@@ -56,7 +54,7 @@
             width: 100%;
             padding: 10px;
             margin-bottom: 15px;
-            border: 1px solid #ccc;
+            border: 1px solid lightgrey;
             border-radius: 4px;
             font-size: 16px;
         }
@@ -86,6 +84,16 @@
             width: 100%;
             height: 100%;
         }
+
+        span{
+            color: red;
+        }
+
+        span[id$="error"] {
+            color: red;
+            display: block;
+        }
+
     </style>
 </head>
 <body>
@@ -98,24 +106,35 @@
             <img src="/static/images/logo.png" class="logo" th:src="@{/images/logo.png}" alt="Logo">
         </div>
         <h5>Register new client</h5>
-        <form th:action="@{/register/client}" method="post" th:object="${user}">
+        <form novalidate th:action="@{/register/client}" method="post" th:object="${user}">
             <div>
                 <label for="firstName">First name</label>
-                <input th:field="*{firstName}" type="text" id="firstName">
+                <input th:field="*{firstName}" type="text" id="firstName" name="firstName" required>
+                <span id="firstName_error"></span>
+                <br>
             </div>
             <div>
                 <label for="lastName">Last name</label>
-                <input th:field="*{lastName}" type="text" id="lastName">
+                <input th:field="*{lastName}" type="text" id="lastName" name="lastName" required>
+                <span id="lastName_error"></span>
+                <br>
             </div>
             <div>
                 <label for="email">Email address</label>
-                <input th:field="*{email}" type="text" id="email">
+                <input th:field="*{email}" type="email" id="email" name="email" required>
+                <span id="email_error"></span>
+                <br>
             </div>
             <div>
                 <label for="password">Password</label>
-                <input th:field="*{password}" type="password" id="password">
+                <input th:field="*{password}" type="password" id="password" name="password" required>
+                <span id="password_length_error"></span><br>
+                <span id="password_digit_error"></span><br>
+                <span id="password_uppercase_error"></span><br>
             </div>
             <button type="submit">Register</button>
+            <br><br>
+            <span id="anyError"></span>
         </form>
     </div>
 </div>
