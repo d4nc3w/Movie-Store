@@ -7,34 +7,48 @@
     <title>Order Movie</title>
     <link rel="stylesheet" href="/layout.css">
     <link rel="stylesheet" href="/form.css">
+    <script src="/javascript/orderValidation.js"  type="application/javascript" defer></script>
 </head>
 <main layout:fragment="content">
 <body>
     <div th:if="${movie}">
     <h1>Order Movie</h1>
-        <form th:action="@{/orderMovie}" method="post" th:object="${movieOrder}">
+        <form novalidate th:action="@{/orderMovie}" method="post" th:object="${movieOrder}">
             <input type="hidden" th:field="*{id}" />
             <input type="hidden" name="movieId" th:value="${movie.id}" />
 
             <label for="firstName">First Name:</label>
             <input type="text" id="firstName" th:field="*{firstName}" required>
+            <span id="firstName_error"></span>
+
             <label for="lastName">Last Name:</label>
             <input type="text" id="lastName" th:field="*{lastName}" required>
-<!--            <label for="email">Email:</label>-->
-<!--            <input type="email" id="email"  th:field="*{email}" required>-->
+            <span id="lastName_error"></span>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email"  th:field="*{email}" required>
+            <span id="email_error"></span>
+
             <label for="address">Address:</label>
             <input type="text" id="address" th:field="*{address}" required>
+            <span id="address_error"></span>
+
             <label for="city">City:</label>
             <input type="text" id="city"  th:field="*{city}" required>
+            <span id="city_error"></span>
+
             <label for="cardNumber">Card Number:</label>
-            <input type="text" id="cardNumber" th:field="*{card_Number}" required>
+            <input type="text" id="cardNumber" th:field="*{card_Number}" placeholder="XXXX-XXXX-XXXX-XXXX" required>
+            <span id="cardNumber_error"></span>
 
             <button type="submit">Confirm Order</button>
-
+            <span id="anyError"></span>
         </form>
+        <a class="home-btn" href="/">Back to Movie List</a>
     </div>
     <div th:unless="${movie}">
         <h1>Movie wasn't found </h1>
+        <a class="home-btn" href="/">Back to Movie List</a>
     </div>
 </body>
 </main>
