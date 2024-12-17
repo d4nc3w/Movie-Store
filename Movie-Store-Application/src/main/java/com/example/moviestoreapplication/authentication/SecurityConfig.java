@@ -17,7 +17,7 @@ public class SecurityConfig {
         http.authorizeHttpRequests(request -> request
                 .requestMatchers("/register/**", "/confirm").permitAll()
                 .requestMatchers("/css/**", "/javascript/**", "/images/**").permitAll()
-                .requestMatchers("/images/background.png", "/images/logo.png").permitAll()
+                .requestMatchers("/images/background.jpg", "/images/logo.png").permitAll()
                 .requestMatchers("/adminPage/**").hasAnyRole("ADMIN")
                 .requestMatchers("/deleteMovie").hasAnyRole("EMPLOYEE", "ADMIN")
                 .requestMatchers("/addMovie").hasAnyRole("EMPLOYEE", "ADMIN")
@@ -39,6 +39,6 @@ public class SecurityConfig {
 
     @Bean
     public WebSecurityCustomizer webSecurityCustomizer() {
-        return web -> web.ignoring().requestMatchers("/images/background.png", "/images/logo.png");
+        return web -> web.ignoring().requestMatchers("/images/background.jpg", "/images/logo.png");
     }
 }
