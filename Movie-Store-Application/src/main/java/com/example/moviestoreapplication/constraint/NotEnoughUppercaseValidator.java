@@ -9,7 +9,7 @@ public class NotEnoughUppercaseValidator implements ConstraintValidator<NotEnoug
         boolean isValid;
 
         if(password == null || password.isEmpty()){
-            return false;
+            return true;
         } else {
             int uppercaseCount = 0;
 

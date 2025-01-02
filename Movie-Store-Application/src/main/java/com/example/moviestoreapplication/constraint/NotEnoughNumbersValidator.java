@@ -9,7 +9,7 @@ public class NotEnoughNumbersValidator implements ConstraintValidator<NotEnoughN
         boolean isValid;
 
         if(password == null || password.isEmpty()){
-            return false;
+            return true;
         } else {
             int numberCount = 0;
 

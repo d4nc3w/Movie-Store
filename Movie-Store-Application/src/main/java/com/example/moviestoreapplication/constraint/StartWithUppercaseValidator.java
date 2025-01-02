@@ -6,19 +6,17 @@ import jakarta.validation.ConstraintValidatorContext;
 public class StartWithUppercaseValidator implements ConstraintValidator<StartWithUppercase, String> {
     @Override
     public boolean isValid(String password, ConstraintValidatorContext context) {
-        boolean isValid;
 
         if(password == null || password.isEmpty()){
-            isValid = true;
+            return true;
         } else {
             char firstLetter = password.charAt(0);
             if(Character.isUpperCase(firstLetter)){
-                isValid = false;
+                return true;
             } else {
-                isValid = true;
+                return false;
             }
         }
-        return isValid;
     }
 
     @Override

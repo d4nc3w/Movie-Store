@@ -56,7 +56,7 @@ public class MovieOrder {
     public double Price;
 
     @NotNull
-    @Pattern(regexp = "^\\d{4}-\\d{4}-\\d{4}-\\d{4}$")
+    @Pattern(regexp = "^[0-9]{16}$")
     public String Card_Number;
 
     public MovieOrder(){}

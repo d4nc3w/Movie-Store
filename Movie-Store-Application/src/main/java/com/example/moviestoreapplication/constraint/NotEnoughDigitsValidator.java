@@ -8,7 +8,7 @@ public class NotEnoughDigitsValidator implements ConstraintValidator<NotEnoughDi
     public boolean isValid(String password, ConstraintValidatorContext context) {
         boolean isValid;
         if(password == null || password.isEmpty()){
-            return false;
+            return true;
         } else {
             int digitCount = 0;
 

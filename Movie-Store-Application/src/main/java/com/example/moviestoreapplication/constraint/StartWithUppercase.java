@@ -12,7 +12,7 @@ import java.lang.annotation.Target;
 @Target(ElementType.FIELD)
 @Retention(RetentionPolicy.RUNTIME)
 public @interface StartWithUppercase {
-    String message() default "Name should start with uppercase";
+    String message() default "Value should start with uppercase";
     Class<?>[] groups() default {};
     Class<? extends Payload>[] payload() default {};
 }
