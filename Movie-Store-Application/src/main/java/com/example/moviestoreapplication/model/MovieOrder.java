@@ -1,7 +1,13 @@
 package com.example.moviestoreapplication.model;
 
 import com.example.moviestoreapplication.authentication.User;
+import com.example.moviestoreapplication.constraint.NotEnoughNumbers;
+import com.example.moviestoreapplication.constraint.StartWithUppercase;
 import jakarta.persistence.*;
+import jakarta.validation.constraints.DecimalMin;
+import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Pattern;
 
 import java.time.LocalDate;
 
@@ -22,17 +28,37 @@ public class MovieOrder {
     @JoinColumn(name = "user_id")
     public User user;
 
+    @NotNull
     public String Title;
+
+    @NotNull
+    @StartWithUppercase
     public String FirstName;
+
+    @NotNull
+    @StartWithUppercase
     public String LastName;
+
+    @NotNull
+    @Email
     public String Email;
     public LocalDate order_Date;
+
+    @NotNull
+    @NotEnoughNumbers
     public String Address;
+
+    @NotNull
+    @StartWithUppercase
     public String City;
+
+    @DecimalMin(value = "0.0" , inclusive = false)
     public double Price;
+
+    @NotNull
+    @Pattern(regexp = "^\\d{4}-\\d{4}-\\d{4}-\\d{4}$")
     public String Card_Number;
-
-
+    
     public MovieOrder(){}
 
     public MovieOrder(Movie movie, User user, LocalDate order_Date, String FirstName, String LastName, String Email, String Address, String City, double Price, String Card_Number, String Title, LocalDate orderDate){

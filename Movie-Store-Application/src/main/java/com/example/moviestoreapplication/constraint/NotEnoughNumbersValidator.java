@@ -3,27 +3,29 @@ package com.example.moviestoreapplication.constraint;
 import jakarta.validation.ConstraintValidator;
 import jakarta.validation.ConstraintValidatorContext;
 
-public class NotEnoughDigitsValidator implements ConstraintValidator<NotEnoughDigits, String> {
+public class NotEnoughNumbersValidator implements ConstraintValidator<NotEnoughNumbers, String> {
     @Override
     public boolean isValid(String password, ConstraintValidatorContext context) {
         boolean isValid;
+
         if(password == null || password.isEmpty()){
             return false;
         } else {
-            int digitCount = 0;
+            int numberCount = 0;
 
             for(char ch : password.toCharArray()){
                 if(Character.isDigit(ch)){
-                    digitCount++;
+                    numberCount++;
                 }
             }
-            isValid = digitCount >= 1;
+            isValid = numberCount >= 1;
             return isValid;
         }
+
     }
 
     @Override
-    public void initialize(NotEnoughDigits constraintAnnotation) {
+    public void initialize(NotEnoughNumbers constraintAnnotation) {
     }
 }
 
