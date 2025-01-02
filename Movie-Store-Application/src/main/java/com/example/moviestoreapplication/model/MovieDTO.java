@@ -1,11 +1,28 @@
 package com.example.moviestoreapplication.model;
 
+import com.example.moviestoreapplication.constraint.StartWithUppercase;
+import jakarta.validation.constraints.DecimalMin;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Size;
+
 public class MovieDTO {
     public Integer id;
+
+    @NotNull
+    @StartWithUppercase
     public String Director;
+
+    @NotNull
+    @Size(min = 2)
     public String Title;
+
+    @DecimalMin(value = "0.0" , inclusive = false)
     public double Price;
+
     public boolean isAvailable;
+
+    @NotNull
+    @Size(min = 10)
     public String Description;
 
     public MovieDTO(){}

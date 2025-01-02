@@ -37,6 +37,8 @@ public class User {
     @NotEnoughDigits
     @NotEnoughUppercase
     private String password;
+
+    @NotNull
     private String role;
 
     @OneToMany(mappedBy = "user", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
