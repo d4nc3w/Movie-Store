@@ -1,7 +1,13 @@
 package com.example.moviestoreapplication.authentication;
 
+import com.example.moviestoreapplication.constraint.NotEnoughDigits;
+import com.example.moviestoreapplication.constraint.NotEnoughUppercase;
+import com.example.moviestoreapplication.constraint.StartWithUppercase;
 import com.example.moviestoreapplication.model.MovieOrder;
 import jakarta.persistence.*;
+import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Size;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -13,9 +19,23 @@ public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
+
+    @NotNull
+    @StartWithUppercase
     private String firstName;
+
+    @NotNull
+    @StartWithUppercase
     private String lastName;
+
+    @NotNull
+    @Email
     private String email;
+
+    @NotNull
+    @Size(min = 8)
+    @NotEnoughDigits
+    @NotEnoughUppercase
     private String password;
     private String role;
 
