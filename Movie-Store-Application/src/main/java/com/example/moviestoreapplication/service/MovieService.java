@@ -8,6 +8,8 @@ import com.example.moviestoreapplication.model.MovieOrderDTO;
 import com.example.moviestoreapplication.repository.MovieOrderRepository;
 import com.example.moviestoreapplication.repository.MovieRepository;
 import jakarta.transaction.Transactional;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
@@ -90,5 +92,9 @@ public class MovieService {
             ordersDTO.add(movieOrderDTOMapper.map(m));
         }
         return ordersDTO;
+    }
+
+    public Page<Movie> getPaginatedMovies(int page, int size) {
+        return movieRepository.findAll(PageRequest.of(page, size));
     }
 }

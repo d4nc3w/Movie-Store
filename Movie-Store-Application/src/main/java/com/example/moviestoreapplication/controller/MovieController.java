@@ -1,8 +1,10 @@
 package com.example.moviestoreapplication.controller;
 
+import com.example.moviestoreapplication.model.Movie;
 import com.example.moviestoreapplication.model.MovieDTO;
 import com.example.moviestoreapplication.model.MovieOrderDTO;
 import com.example.moviestoreapplication.service.MovieService;
+import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -16,9 +18,20 @@ public class MovieController {
         this.movieService = movieService;
     }
 
+//    @GetMapping()
+//    public String getHome(Model model){
+//        model.addAttribute("movies", movieService.getAllMovies());
+//        return "index";
+//    }
+
     @GetMapping()
-    public String getHome(Model model){
-        model.addAttribute("movies", movieService.getAllMovies());
+    public String getHome(
+            @RequestParam(defaultValue = "1") int page,
+            Model model) {
+        Page<Movie> moviePage = movieService.getPaginatedMovies(page, 10);
+        model.addAttribute("movies", moviePage.getContent());
+        model.addAttribute("currentPage", page);
+        model.addAttribute("totalPages", moviePage.getTotalPages());
         return "index";
     }
 

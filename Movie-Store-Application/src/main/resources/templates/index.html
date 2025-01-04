@@ -34,6 +34,19 @@
     </table>
 
     <div>
+        <a th:href="@{/?page=__${currentPage - 1}__}"
+           th:if="${currentPage > 1}"
+           th:text="#{app.previous}"></a>
+
+        <span th:text="'Page ' + (${currentPage}) + ' of ' + ${totalPages - 1}"></span>
+
+        <a th:href="@{/?page=__${currentPage + 1}__}"
+           th:if="${currentPage < totalPages - 1}"
+           th:text="#{app.next}">Next</a>
+    </div>
+    <br><br>
+
+    <div>
         <a class="details-btn" href="/displayFullTable" th:text="#{app.displayFull}"></a>
         <a class="add-btn" href="/addMovie" th:text="#{app.addMovie}"></a>
         <a class="admin-btn" href="/adminPage" th:text="#{app.adminPage}"></a>
