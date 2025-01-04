@@ -12,33 +12,33 @@
 <body>
 <main layout:fragment="content">
     <div th:if="${movie}">
-    <h1>Edit Movie</h1>
+    <h1 th:text="#{app.editMovie}"></h1>
     <form novalidate th:action="@{/editMovie}" method="post" th:object="${movie}">
         <input type="hidden" th:field="*{id}" />
-        <label for="title">Title:</label>
+        <label for="title" th:text="#{app.title}"></label>
         <input type="text" id="title" th:field="*{title}" required>
         <span id="title_error"></span>
 
-        <label for="director">Director:</label>
+        <label for="director" th:text="#{app.director}"></label>
         <input type="text" id="director" th:field="*{director}" required>
         <span id="director_error"></span>
 
-        <label for="price">Price:</label>
+        <label for="price" th:text="#{app.price}"></label>
         <input type="number" id="price" th:field="*{price}" required>
         <span id="price_error"></span>
 
-        <label for="description">Description</label>
+        <label for="description" th:text="#{app.description}"></label>
         <textarea id="description" th:field="*{description}" required></textarea>
         <span id="description_error"></span>
 
-        <button type="submit">Save</button>
+        <button type="submit" th:text="#{app.submit}"></button>
         <span id="anyError"></span>
     </form>
-    <a class="home-btn" href="/">Back to Movie List</a>
+    <a class="home-btn" href="/" th:text="#{app.back}"></a>
     </div>
     <div th:unless="${movie}">
-        <h1>There is no such movie</h1>
-        <a class="home-btn" href="/">Go Home</a>
+        <h1 th:text="#{app.notfound}"></h1>
+        <a class="home-btn" href="/" th:text="#{app.home}"></a>
     </div>
 </main>
 </body>

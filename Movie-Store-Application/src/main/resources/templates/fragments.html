@@ -5,12 +5,13 @@
 </head>
 <body>
 <div th:fragment="header">
+    <a href="?lang=en">English</a> | <a href="?lang=pl">Polski</a><br><br>
     <img class="logo" src="../static/images/logo.png" th:src="@{/images/logo.png}">
 </div>
 <div th:fragment="footer">
     <br><br>
     <a th:if="${#authentication.isAuthenticated()}"
-       th:text="|Log out ${#authentication.name}|" th:href="@{/logout}"
+       th:text="|#{app.logout} ${#authentication.name}|" th:href="@{/logout}"
        class="logout-btn"></a>
     <br><br>
     <p>TIN @ PJAIT &copy;2024</p>

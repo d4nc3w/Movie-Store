@@ -11,15 +11,15 @@
     <main layout:fragment="content">
 <body>
 <div th:if="${movie}" class="movie-container">
-    <h1>Movie Details</h1>
+    <h1 th:text="#{app.titleDetails}"></h1>
         <table>
             <thead>
             <tr>
                 <th>Id</th>
-                <th>Director</th>
-                <th>Title</th>
-                <th>Price</th>
-                <th>Description</th>
+                <th th:text="#{app.director}"></th>
+                <th th:text="#{app.title}"></th>
+                <th th:text="#{app.price}"></th>
+                <th th:text="#{app.description}"></th>
             </tr>
             </thead>
             <tbody>
@@ -32,13 +32,13 @@
             </tr>
             </tbody>
         </table>
-    <a class="home-btn" th:href="@{'/orderMovie?id=' + ${movie.id}}" role="button">Order</a>
-    <a class="delete-btn" th:href="@{/deleteMovie(id=${movie.id})}" role="button">Delete this movie</a>
-    <a class="edit-btn" th:href="@{/editMovie(id=${movie.id})}" role="button">Edit this movie</a>
+    <a class="home-btn" th:href="@{'/orderMovie?id=' + ${movie.id}}" role="button" th:text="#{app.order}"></a>
+    <a class="delete-btn" th:href="@{/deleteMovie(id=${movie.id})}" role="button" th:text="#{app.delete}"></a>
+    <a class="edit-btn" th:href="@{/editMovie(id=${movie.id})}" role="button" th:text="#{app.edit}"></a>
 </div>
 <div>
-    <a class="add-btn" href="/">Home</a>
-    <a class="admin-btn" href="/adminPage">Admin Page</a>
+    <a class="add-btn" href="/" th:text="#{app.home}"></a>
+    <a class="admin-btn" href="/adminPage" th:text="#{app.adminPage}"></a>
 </div>
 </body>
 </main>

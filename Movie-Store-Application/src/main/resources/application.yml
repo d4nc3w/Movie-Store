@@ -18,3 +18,5 @@ spring:
   sql:
     init:
       data-locations: classpath:sql-data/movie.sql, classpath:sql-data/users.sql, classpath:sql-data/order.sql
+  messages:
+    encoding: UTF-8

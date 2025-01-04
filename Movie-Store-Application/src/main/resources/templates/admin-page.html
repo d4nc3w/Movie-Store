@@ -10,15 +10,15 @@
 </head>
 <main layout:fragment="content">
 <body>
-    <h1>Admin Page</h1>
+    <h1 th:text="#{app.adminPage}"></h1>
     <table>
         <thead>
         <tr>
             <th>ID</th>
-            <th>First Name</th>
-            <th>Last Name</th>
-            <th>Email</th>
-            <th>Action</th>
+            <th th:text="#{app.firstname}"></th>
+            <th th:text="#{app.lastname}"></th>
+            <th th:text="#{app.email}"></th>
+            <th th:text="#{app.action}"></th>
         </tr>
         </thead>
         <tbody>
@@ -29,19 +29,19 @@
             <td th:text="${user.email}"></td>
             <td>
                 <a class="delete-btn"
-                   th:href="@{/adminPage/deleteUser(email=${user.email})}">
-                    Delete
+                   th:href="@{/adminPage/deleteUser(email=${user.email})}"
+                   th:text="#{app.delete}">
                 </a>
                 <a class="edit-btn"
-                   th:href="@{/adminPage/editUser(email=${user.email})}">
-                    Edit
+                   th:href="@{/adminPage/editUser(email=${user.email})}"
+                   th:text="#{app.edit}">
                 </a>
             </td>
         </tr>
         </tbody>
     </table>
-    <a class="home-btn" href="/">Back to Movie List</a>
-    <a class="details-btn" href="/adminPage/orderList">Order List</a>
+    <a class="home-btn" href="/" th:text="#{app.back}"></a>
+    <a class="details-btn" href="/adminPage/orderList" th:text="#{app.orderList}"></a>
 </body>
 </main>
 </html>

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org"
+<html lang="pl-PL" xmlns:th="http://www.thymeleaf.org"
       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
       layout:decorate="~{layout}">
 <head>
@@ -12,43 +12,43 @@
 <main layout:fragment="content">
 <body>
     <div th:if="${movie}">
-    <h1>Order Movie</h1>
+    <h1 th:text="#{app.titleOrder}"></h1>
         <form novalidate th:action="@{/orderMovie}" method="post" th:object="${movieOrder}">
             <input type="hidden" th:field="*{id}" />
             <input type="hidden" name="movieId" th:value="${movie.id}" />
 
-            <label for="firstName">First Name:</label>
+            <label for="firstName" th:text="#{app.firstname}"></label>
             <input type="text" id="firstName" th:field="*{firstName}" required>
             <span id="firstName_error"></span>
 
-            <label for="lastName">Last Name:</label>
+            <label for="lastName" th:text="#{app.lastname}"></label>
             <input type="text" id="lastName" th:field="*{lastName}" required>
             <span id="lastName_error"></span>
 
-            <label for="email">Email:</label>
+            <label for="email" th:text="#{app.email}"></label>
             <input type="email" id="email"  th:field="*{email}" required>
             <span id="email_error"></span>
 
-            <label for="address">Address:</label>
+            <label for="address" th:text="#{app.address}"></label>
             <input type="text" id="address" th:field="*{address}" required>
             <span id="address_error"></span>
 
-            <label for="city">City:</label>
+            <label for="city" th:text="#{app.city}"></label>
             <input type="text" id="city"  th:field="*{city}" required>
             <span id="city_error"></span>
 
-            <label for="cardNumber">Card Number:</label>
+            <label for="cardNumber" th:text="#{app.cardnumber}"></label>
             <input type="text" id="cardNumber" th:field="*{card_Number}" placeholder="XXXXXXXXXXXXXXXX" required>
             <span id="cardNumber_error"></span>
 
-            <button type="submit">Confirm Order</button>
+            <button type="submit" th:text="#{app.submit}"></button>
             <span id="anyError"></span>
         </form>
-        <a class="home-btn" href="/">Back to Movie List</a>
+        <a class="home-btn" href="/" th:text="#{app.back}"></a>
     </div>
     <div th:unless="${movie}">
-        <h1>Movie wasn't found </h1>
-        <a class="home-btn" href="/">Back to Movie List</a>
+        <h1 th:text="#{app.notfound}"></h1>
+        <a class="home-btn" href="/" th:text="#{app.back}"></a>
     </div>
 </body>
 </main>

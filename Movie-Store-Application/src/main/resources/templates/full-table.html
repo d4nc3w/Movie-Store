@@ -10,15 +10,15 @@
 </head>
 <main layout:fragment="content">
     <body>
-    <h1>Movie List</h1>
+    <h1 th:text="#{app.titleList}"></h1>
     <table>
         <thead>
         <tr>
             <th>Id</th>
-            <th>Director</th>
-            <th>Title</th>
-            <th>Price</th>
-            <th>Description</th>
+            <th th:text="#{app.director}"></th>
+            <th th:text="#{app.title}"></th>
+            <th th:text="#{app.price}"></th>
+            <th th:text="#{app.description}"></th>
         </tr>
         </thead>
         <tbody>
@@ -33,7 +33,7 @@
     </table>
 
     <div>
-        <a class="home-btn" href="/">Go back</a>
+        <a class="home-btn" href="/" th:text="#{app.back}"></a>
     </div>
     </body>
 </main>

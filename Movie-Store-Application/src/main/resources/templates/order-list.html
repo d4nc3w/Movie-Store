@@ -10,22 +10,22 @@
 </head>
 <main layout:fragment="content">
 <body>
-    <h1>All Orders</h1>
+    <h1 th:text="#{app.allOrders}"></h1>
     <table>
         <thead>
         <tr>
             <th>Id</th>
-            <th>Order Date</th>
-            <th>Title</th>
-            <th>First Name</th>
-            <th>Last Name</th>
-            <th>Price</th>
-            <th>Email</th>
-            <th>Address</th>
-            <th>City</th>
-            <th>Card Number</th>
-            <th>Movie Id</th>
-            <th>User Id</th>
+            <th th:text="#{app.orderDate}"></th>
+            <th th:text="#{app.title}"></th>
+            <th th:text="#{app.firstname}"></th>
+            <th th:text="#{app.lastname}"></th>
+            <th th:text="#{app.price}"></th>
+            <th th:text="#{app.email}"></th>
+            <th th:text="#{app.address}"></th>
+            <th th:text="#{app.city}"></th>
+            <th th:text="#{app.cardnumber}"></th>
+            <th th:text="#{app.movieId}"></th>
+            <th th:text="#{app.userId}"></th>
         </tr>
         </thead>
         <tbody>
@@ -47,8 +47,8 @@
         </tbody>
     </table>
 
-    <a class="home-btn" href="/">Back to Movie List</a>
-    <a class="admin-btn" href="/adminPage">Admin Page</a>
+    <a class="home-btn" href="/" th:text="#{app.back}"></a>
+    <a class="admin-btn" href="/adminPage" th:text="#{app.adminPage}"></a>
 
 </body>
 </main>

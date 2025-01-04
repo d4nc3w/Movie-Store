@@ -10,14 +10,14 @@
 </head>
 <main layout:fragment="content">
 <body>
-    <h1>Movie List</h1>
+    <h1 th:text="#{app.titleList}"></h1>
     <table>
         <thead>
         <tr>
-            <th>Director</th>
-            <th>Title</th>
-            <th>Price</th>
-            <th>Action</th>
+            <th th:text="#{app.director}"></th>
+            <th th:text="#{app.title}"></th>
+            <th th:text="#{app.price}"></th>
+            <th th:text="#{app.action}"></th>
         </tr>
         </thead>
         <tbody>
@@ -26,17 +26,17 @@
             <td th:text="${movie.title}"></td>
             <td th:text="${movie.price}"></td>
             <td>
-                <a class="details-btn" th:href="@{'/movie?id=' + ${movie.id}}" role="button">Details</a>
-                <a class="home-btn" th:href="@{'/orderMovie?id=' + ${movie.id}}" role="button">Order</a>
+                <a class="details-btn" th:href="@{'/movie?id=' + ${movie.id}}" role="button" th:text="#{app.details}"></a>
+                <a class="home-btn" th:href="@{'/orderMovie?id=' + ${movie.id}}" role="button" th:text="#{app.order}"></a>
             </td>
         </tr>
         </tbody>
     </table>
 
     <div>
-        <a class="details-btn" href="/displayFullTable">Display Full Table</a>
-        <a class="add-btn" href="/addMovie">Add Movie</a>
-        <a class="admin-btn" href="/adminPage">Admin Page</a>
+        <a class="details-btn" href="/displayFullTable" th:text="#{app.displayFull}"></a>
+        <a class="add-btn" href="/addMovie" th:text="#{app.addMovie}"></a>
+        <a class="admin-btn" href="/adminPage" th:text="#{app.adminPage}"></a>
     </div>
 </body>
 </main>

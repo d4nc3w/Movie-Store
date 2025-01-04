@@ -10,23 +10,23 @@
 </head>
 <main layout:fragment="content">
 <body>
-<h1>Edit User</h1>
+<h1 th:text="#{app.editUser}"></h1>
 <div th:if="${user}">
     <h2>Email: <span th:text="${user.email}"></span></h2>
-    <h3>Current Role: <span th:text="${user.role}"></span></h3>
+    <h3>Role: <span th:text="${user.role}"></span></h3>
 
     <form action="/adminPage/editUser" method="post" th:action="@{/adminPage/editUser}">
         <input type="hidden" name="email" th:value="${user.email}" />
-        <label>Change role</label>
+        <label th:text="#{app.changeRole}"></label>
         <select name="role" required>
-            <option value="ADMIN">Admin</option>
-            <option value="EMPLOYEE">Employee</option>
-            <option value="CLIENT">Client</option>
-            <option value="GUEST">Guest</option>
+            <option value="ADMIN" th:text="#{app.admin}"></option>
+            <option value="EMPLOYEE" th:text="#{app.employee}"></option>
+            <option value="CLIENT" th:text="#{app.client}"></option>
+            <option value="GUEST" th:text="#{app.guest}"></option>
         </select>
-        <button type="submit">Update Role</button>
+        <button type="submit" th:text="#{app.updateRole}"></button>
     </form>
-    <a class="home-btn" href="/adminPage" role="button">Go Back</a>
+    <a class="home-btn" href="/adminPage" role="button" th:text="#{app.backToAdmin}"></a>
 </div>
 </body>
 </main>
