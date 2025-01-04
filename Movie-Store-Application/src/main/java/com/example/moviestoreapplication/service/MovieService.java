@@ -84,17 +84,23 @@ public class MovieService {
         movieOrderRepository.save(movieOrder);
     }
 
-    public List<MovieOrderDTO> getAllOrders(){
-        Iterable<MovieOrder> orders = movieOrderRepository.findAll();
-        List<MovieOrderDTO> ordersDTO = new ArrayList<>();
-        for(MovieOrder m : orders){
-            movieOrderDTOMapper.map(m);
-            ordersDTO.add(movieOrderDTOMapper.map(m));
-        }
-        return ordersDTO;
+//    public List<MovieOrderDTO> getAllOrders(){
+//        Iterable<MovieOrder> orders = movieOrderRepository.findAll();
+//        List<MovieOrderDTO> ordersDTO = new ArrayList<>();
+//        for(MovieOrder m : orders){
+//            movieOrderDTOMapper.map(m);
+//            ordersDTO.add(movieOrderDTOMapper.map(m));
+//        }
+//        return ordersDTO;
+//    }
+
+    public Page<MovieOrderDTO> getAllOrders(int page, int size) {
+        Page<MovieOrder> ordersPage = movieOrderRepository.findAll(PageRequest.of(page, size));
+        return ordersPage.map(movieOrderDTOMapper::map);
     }
 
-    public Page<Movie> getPaginatedMovies(int page, int size) {
-        return movieRepository.findAll(PageRequest.of(page, size));
+    public Page<MovieDTO> getPaginatedMovies(int page, int size) {
+         Page<Movie> moviesPage = movieRepository.findAll(PageRequest.of(page, size));
+         return moviesPage.map(movieDTOMapper::map);
     }
 }

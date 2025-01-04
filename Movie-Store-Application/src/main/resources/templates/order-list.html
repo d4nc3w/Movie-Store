@@ -47,6 +47,19 @@
         </tbody>
     </table>
 
+    <div>
+        <a th:href="@{/adminPage/orderList?page=__${currentPage - 1}__}"
+           th:if="${currentPage > 0}"
+           th:text="#{app.previous}"></a>
+
+        <span th:text="'Page ' + (${currentPage + 1}) + ' of ' + ${totalPages}"></span>
+
+        <a th:href="@{/adminPage/orderList?page=__${currentPage + 1}__}"
+           th:if="${currentPage < totalPages - 1}"
+           th:text="#{app.next}"></a>
+    </div>
+    <br><br>
+
     <a class="home-btn" href="/" th:text="#{app.back}"></a>
     <a class="admin-btn" href="/adminPage" th:text="#{app.adminPage}"></a>
 

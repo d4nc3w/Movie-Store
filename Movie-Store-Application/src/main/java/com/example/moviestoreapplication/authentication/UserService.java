@@ -1,7 +1,11 @@
 package com.example.moviestoreapplication.authentication;
 
+import com.example.moviestoreapplication.model.Movie;
+import com.example.moviestoreapplication.model.MovieOrder;
 import com.example.moviestoreapplication.repository.UserRepository;
 import jakarta.transaction.Transactional;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.password.MessageDigestPasswordEncoder;
@@ -13,15 +17,16 @@ import java.util.Optional;
 
 @Service
 public class UserService {
+    private final UserDTOMapper userDTOMapper;
     private UserRepository userRepository;
 
-    public UserService(UserRepository userRepository){
+    public UserService(UserRepository userRepository, UserDTOMapper userDTOMapper){
         this.userRepository = userRepository;
+        this.userDTOMapper = userDTOMapper;
     }
 
     public Optional<UserDTO> findUserCredentialsByEmail(String email){
-        return userRepository.findByEmail(email)
-                .map(UserDTOMapper::map);
+        return userRepository.findByEmail(email).map(userDTOMapper::map);
     }
 
     public List<User> findAllUsers(){
@@ -73,5 +78,10 @@ public class UserService {
         user.setPassword("{SHA-256}" + new MessageDigestPasswordEncoder("SHA-256").encode(userDTO.getPassword()));
         user.setRole("CLIENT");
         userRepository.save(user);
+    }
+
+    public Page<UserDTO> getPaginatedUsers(int page, int size) {
+         Page<User> userPage = userRepository.findAll(PageRequest.of(page, size));
+        return userPage.map(userDTOMapper::map);
     }
 }

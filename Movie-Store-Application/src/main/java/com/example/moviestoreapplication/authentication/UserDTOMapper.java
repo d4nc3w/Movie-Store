@@ -7,7 +7,7 @@ import java.util.stream.Collectors;
 @Service
 public class UserDTOMapper {
 
-    public static UserDTO map(User user){
+    public UserDTO map(User user){
         return new UserDTO(
                 user.getEmail(),
                 user.getPassword(),
