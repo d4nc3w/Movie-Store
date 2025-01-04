@@ -25,9 +25,7 @@ public class MovieController {
 //    }
 
     @GetMapping()
-    public String getHome(
-            @RequestParam(defaultValue = "1") int page,
-            Model model) {
+    public String getHome(@RequestParam(defaultValue = "0") int page, Model model) {
         Page<Movie> moviePage = movieService.getPaginatedMovies(page, 10);
         model.addAttribute("movies", moviePage.getContent());
         model.addAttribute("currentPage", page);
@@ -85,8 +83,11 @@ public class MovieController {
     }
 
     @GetMapping("displayFullTable")
-    public String displayFullTable(Model model){
-        model.addAttribute("movies", movieService.getAllMovies());
+    public String displayFullTable(@RequestParam(defaultValue = "0") int page, Model model){
+        Page<Movie> moviePage = movieService.getPaginatedMovies(page, 10);
+        model.addAttribute("movies", moviePage.getContent());
+        model.addAttribute("currentPage", page);
+        model.addAttribute("totalPages", moviePage.getTotalPages());
         return "full-table";
     }
 }

@@ -33,6 +33,19 @@
     </table>
 
     <div>
+        <a th:href="@{/displayFullTable?page=__${currentPage - 1}__}"
+           th:if="${currentPage > 0}"
+           th:text="#{app.previous}">Previous</a>
+
+        <span th:text="'Page ' + (${currentPage + 1}) + ' of ' + ${totalPages}"></span>
+
+        <a th:href="@{/displayFullTable?page=__${currentPage + 1}__}"
+           th:if="${currentPage < totalPages - 1}"
+           th:text="#{app.next}">Next</a>
+    </div>
+    <br><br>
+
+    <div>
         <a class="home-btn" href="/" th:text="#{app.back}"></a>
     </div>
     </body>
