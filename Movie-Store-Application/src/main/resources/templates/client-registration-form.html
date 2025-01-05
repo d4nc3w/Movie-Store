@@ -9,7 +9,6 @@
             padding-top: 40px;
             padding-bottom: 40px;
             background-color: ghostwhite;
-            font-family: Arial, sans-serif;
         }
 
         .container {
@@ -99,11 +98,11 @@
 <body>
 <div class="container">
     <div class="image-section">
-        <img src="/static/images/background.jpg" class="login-img" th:src="@{/images/background.jpg}"/>
+        <img src="/images/background.jpg" class="login-img" th:src="@{/images/background.jpg}"/>
     </div>
     <div class="form-section">
         <div class="logo">
-            <img src="/static/images/logo.png" class="logo" th:src="@{/images/logo.png}" alt="Logo">
+            <img src="/images/logo.png" class="logo" th:src="@{/images/logo.png}" alt="Logo">
         </div>
         <h5>Register new client</h5>
         <form novalidate th:action="@{/register/client}" method="post" th:object="${user}">

@@ -1,6 +1,5 @@
 package com.example.moviestoreapplication.controller;
 
-import com.example.moviestoreapplication.model.Movie;
 import com.example.moviestoreapplication.model.MovieDTO;
 import com.example.moviestoreapplication.model.MovieOrderDTO;
 import com.example.moviestoreapplication.service.MovieService;

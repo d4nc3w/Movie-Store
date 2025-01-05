@@ -2,12 +2,9 @@ package com.example.moviestoreapplication.authentication;
 
 import com.example.moviestoreapplication.constraint.NotEnoughDigits;
 import com.example.moviestoreapplication.constraint.NotEnoughUppercase;
-import com.example.moviestoreapplication.constraint.StartWithUppercase;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
-
-import java.util.Set;
 
 public class UserDTO {
 

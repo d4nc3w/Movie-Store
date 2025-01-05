@@ -3,6 +3,7 @@ package com.example.moviestoreapplication.controller;
 import com.example.moviestoreapplication.authentication.User;
 import com.example.moviestoreapplication.authentication.UserDTO;
 import com.example.moviestoreapplication.authentication.UserService;
+import com.example.moviestoreapplication.model.MovieOrder;
 import com.example.moviestoreapplication.model.MovieOrderDTO;
 import com.example.moviestoreapplication.service.MovieService;
 import org.springframework.data.domain.Page;
@@ -12,8 +13,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-
-import java.util.Set;
 
 @Controller
 @RequestMapping("/adminPage")
@@ -35,7 +34,7 @@ public class AdminController {
 
     @GetMapping
     public String index(@RequestParam(defaultValue = "0") int page, Model model) {
-        Page<UserDTO> userPage = userService.getPaginatedUsers(page, 10);
+        Page<User> userPage = userService.getPaginatedUsers(page, 10);
         model.addAttribute("userEmails", userPage.getContent());
         model.addAttribute("currentPage", userPage.getNumber());
         model.addAttribute("totalPages", userPage.getTotalPages());

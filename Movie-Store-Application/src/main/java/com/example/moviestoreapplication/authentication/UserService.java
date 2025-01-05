@@ -57,16 +57,13 @@ public class UserService {
 
     public String getCurrentUserEmail(){
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-        UserDTO userDTO = findUserCredentialsByEmail(authentication.getName()).get();
-        String currentPrincipalName = authentication.getName();
-        return currentPrincipalName;
+        return authentication.getName();
     }
 
     public User getCurrentUser(){
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         UserDTO userDTO = findUserCredentialsByEmail(authentication.getName()).get();
-        User user = userRepository.findByEmail(userDTO.getEmail()).get();
-        return user;
+        return userRepository.findByEmail(userDTO.getEmail()).get();
     }
 
     @Transactional
@@ -80,8 +77,8 @@ public class UserService {
         userRepository.save(user);
     }
 
-    public Page<UserDTO> getPaginatedUsers(int page, int size) {
+    public Page<User> getPaginatedUsers(int page, int size) {
          Page<User> userPage = userRepository.findAll(PageRequest.of(page, size));
-        return userPage.map(userDTOMapper::map);
+        return userPage;
     }
 }

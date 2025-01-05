@@ -22,21 +22,4 @@ public class MovieOrderDTOMapper {
         movieOrderDTO.setCard_Number(movieOrder.getCard_Number());
         return movieOrderDTO;
     }
-
-    public MovieOrder map(MovieOrderDTO movieOrderDTO){
-        MovieOrder movieOrder = new MovieOrder();
-        movieOrder.setId(movieOrderDTO.getId());
-        movieOrder.setMovie(movieOrderDTO.getMovie());
-        movieOrder.setUser(movieOrderDTO.getUser());
-        movieOrder.setOrder_Date(movieOrderDTO.getOrderDate());
-        movieOrder.setTitle(movieOrderDTO.getTitle());
-        movieOrder.setFirstName(movieOrderDTO.getFirstName());
-        movieOrder.setLastName(movieOrderDTO.getLastName());
-        movieOrder.setEmail(movieOrderDTO.getEmail());
-        movieOrder.setAddress(movieOrderDTO.getAddress());
-        movieOrder.setCity(movieOrderDTO.getCity());
-        movieOrder.setPrice(movieOrderDTO.getPrice());
-        movieOrder.setCard_Number(movieOrderDTO.getCard_Number());
-        return movieOrder;
-    }
 }
