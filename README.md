@@ -15,5 +15,5 @@ CLIENT
   Password: Pjwstk0112?
 
 GUEST
-  Email:guest@gmail.com
+  Email: guest@gmail.com
   Password: HelloGuest!1
