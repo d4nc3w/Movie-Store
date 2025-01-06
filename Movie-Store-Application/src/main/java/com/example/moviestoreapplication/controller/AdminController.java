@@ -1,9 +1,7 @@
 package com.example.moviestoreapplication.controller;
 
 import com.example.moviestoreapplication.authentication.User;
-import com.example.moviestoreapplication.authentication.UserDTO;
 import com.example.moviestoreapplication.authentication.UserService;
-import com.example.moviestoreapplication.model.MovieOrder;
 import com.example.moviestoreapplication.model.MovieOrderDTO;
 import com.example.moviestoreapplication.service.MovieService;
 import org.springframework.data.domain.Page;

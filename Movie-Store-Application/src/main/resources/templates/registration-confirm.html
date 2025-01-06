@@ -9,7 +9,7 @@
             padding: 40px 0;
             margin: 0;
             font-family: Arial, sans-serif;
-            background-color: ghostwhite;
+            background: linear-gradient(110deg, darkred, white);
             display: flex;
             justify-content: center;
             align-items: center;
@@ -29,7 +29,7 @@
 
         .image-section {
             flex: 1;
-            background-image: url('/static/images/background.jpg');
+            background-image: url('/images/background.jpg');
             background-size: cover;
             background-position: center;
             border-radius: 8px 0 0 8px;
@@ -86,11 +86,11 @@
 <body>
 <div class="container">
     <div class="image-section">
-        <img src="/static/images/background.jpg" class="login-img" th:src="@{/images/background.jpg}"/>
+        <img src="/images/background.jpg" class="login-img" th:src="@{/images/background.jpg}"/>
     </div>
     <div class="content-section">
         <div class="logo">
-            <img src="/static/images/logo.png" class="logo" th:src="@{/images/logo.png}" alt="Logo">
+            <img src="/images/logo.png" class="logo" th:src="@{/images/logo.png}" alt="Logo">
         </div>
         <h5>New account has been created</h5>
         <div>

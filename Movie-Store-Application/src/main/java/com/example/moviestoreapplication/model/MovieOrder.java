@@ -8,6 +8,7 @@ import jakarta.validation.constraints.DecimalMin;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Pattern;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import java.time.LocalDate;
 
@@ -42,6 +43,9 @@ public class MovieOrder {
     @NotNull
     @Email
     public String Email;
+
+    @NotNull
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     public LocalDate order_Date;
 
     @NotNull
@@ -56,7 +60,7 @@ public class MovieOrder {
     public double Price;
 
     @NotNull
-    @Pattern(regexp = "^[0-9]{16}$")
+    @Pattern(regexp = "^\\d{4}-\\d{4}-\\d{4}-\\d{4}$")
     public String Card_Number;
 
     public MovieOrder(){}

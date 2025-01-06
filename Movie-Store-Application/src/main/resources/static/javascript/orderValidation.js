@@ -62,7 +62,7 @@ document.addEventListener("DOMContentLoaded", () => {
             city_error.innerText = '';
         }
 
-        if (!/^\d{16}$/.test(cardNumberInput.value)) {
+        if (!/^\d{4}-\d{4}-\d{4}-\d{4}$/.test(cardNumberInput.value)) {
             isValid = false;
             cardNumberInput.classList.add("error");
             cardNumber_error.innerText = 'Card number should have 16 digits';

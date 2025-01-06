@@ -8,11 +8,15 @@
         body {
             margin: 0;
             padding: 0;
-            background-color: ghostwhite;
+            background: linear-gradient(110deg, darkred, white);
             display: flex;
             justify-content: center;
             align-items: center;
             height: 100vh;
+        }
+
+        a{
+            align-items: center;
         }
 
         .login-container {
@@ -128,7 +132,7 @@
 
     <div class="form-container">
         <img src="/images/logo.png" alt="Logo" class="logo" th:src="@{/images/logo.png}">
-        <h5>Sign into your account</h5>
+        <h5>Sign in to your account</h5>
 
         <div th:if="${param.error}" class="error-message">
             Invalid username or password.
