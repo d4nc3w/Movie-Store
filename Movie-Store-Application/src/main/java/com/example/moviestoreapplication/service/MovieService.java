@@ -13,8 +13,6 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -32,7 +30,7 @@ public class MovieService {
         this.movieOrderDTOMapper = movieOrderDTOMapper;
         this.userService = userService;
     }
-
+    /*
     public List<MovieDTO> getAllMovies(){
         Iterable<Movie> movies = movieRepository.findAll();
         List<MovieDTO> moviesDTO = new ArrayList<>();
@@ -41,7 +39,7 @@ public class MovieService {
             moviesDTO.add(movieDTOMapper.map(m));
         }
         return moviesDTO;
-    }
+    }*/
 
     public Optional<Movie> findMovieById(Integer id) {
         return movieRepository.findById(id);
@@ -83,16 +81,6 @@ public class MovieService {
         movieOrderRepository.save(movieOrder);
     }
 
-//    public List<MovieOrderDTO> getAllOrders(){
-//        Iterable<MovieOrder> orders = movieOrderRepository.findAll();
-//        List<MovieOrderDTO> ordersDTO = new ArrayList<>();
-//        for(MovieOrder m : orders){
-//            movieOrderDTOMapper.map(m);
-//            ordersDTO.add(movieOrderDTOMapper.map(m));
-//        }
-//        return ordersDTO;
-//    }
-
     public Page<MovieOrderDTO> getAllOrders(int page, int size) {
         Page<MovieOrder> ordersPage = movieOrderRepository.findAll(PageRequest.of(page, size));
         return ordersPage.map(movieOrderDTOMapper::map);
@@ -101,9 +89,5 @@ public class MovieService {
     public Page<MovieDTO> getPaginatedMovies(int page, int size) {
          Page<Movie> moviesPage = movieRepository.findAll(PageRequest.of(page, size));
          return moviesPage.map(movieDTOMapper::map);
-    }
-
-    public Optional<Object> findMovieOrderById(Integer id) {
-        return movieOrderRepository.findById(id);
     }
 }

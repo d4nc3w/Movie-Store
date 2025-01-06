@@ -14,6 +14,4 @@ public interface MovieOrderRepository extends PagingAndSortingRepository<MovieOr
     @Query("DELETE FROM MovieOrder mo WHERE mo.movie.id = :movieId")
     void deleteAllByMovieId(@Param("movieId") Integer movieId);
     void save(MovieOrder movieOrder);
-    Iterable<MovieOrder> findAll();
-    Optional<Object> findById(Integer id);
 }

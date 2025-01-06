@@ -17,11 +17,11 @@ public class MovieController {
         this.movieService = movieService;
     }
 
-//    @GetMapping()
-//    public String getHome(Model model){
-//        model.addAttribute("movies", movieService.getAllMovies());
-//        return "index";
-//    }
+/*    @GetMapping()
+    public String getHome(Model model){
+        model.addAttribute("movies", movieService.getAllMovies());
+        return "index";
+    }*/
 
     @GetMapping()
     public String getHome(@RequestParam(defaultValue = "0") int page, Model model) {

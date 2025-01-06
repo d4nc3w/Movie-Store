@@ -21,7 +21,7 @@ form{
 }
 
 button{
-    background: linear-gradient(90deg, dodgerblue, mediumpurple);
+    background: linear-gradient(90deg, darkred, #ff9696);
     border-radius: 20px;
     padding: 10px;
     width: 50%;

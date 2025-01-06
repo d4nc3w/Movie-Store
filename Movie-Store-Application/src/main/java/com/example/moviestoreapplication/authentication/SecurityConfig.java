@@ -22,7 +22,7 @@ public class SecurityConfig {
                 .requestMatchers("/deleteMovie").hasAnyRole("EMPLOYEE", "ADMIN")
                 .requestMatchers("/addMovie").hasAnyRole("EMPLOYEE", "ADMIN")
                 .requestMatchers("/editMovie").hasAnyRole("EMPLOYEE", "ADMIN")
-                .requestMatchers("/buyMovie").hasAnyRole("CLIENT", "EMPLOYEE", "ADMIN")
+                .requestMatchers("/orderMovie").hasAnyRole("CLIENT", "EMPLOYEE", "ADMIN")
                 .requestMatchers("/movie").hasAnyRole( "GUEST", "CLIENT", "EMPLOYEE", "ADMIN")
                 .requestMatchers(new AntPathRequestMatcher("/h2-console/**")).permitAll()
                 .requestMatchers(PathRequest.toH2Console()).permitAll()
@@ -33,6 +33,9 @@ public class SecurityConfig {
                 .logoutSuccessUrl("/"));
         http.csrf(csrf -> csrf.ignoringRequestMatchers(PathRequest.toH2Console()));
         http.headers(config -> config.frameOptions(options -> options.sameOrigin()));
+        http.exceptionHandling(exceptionHandling -> exceptionHandling
+                .accessDeniedPage("/403")
+        );
 
         return http.build();
     }

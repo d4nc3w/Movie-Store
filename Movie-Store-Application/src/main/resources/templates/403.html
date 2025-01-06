@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout}">
+<head>
+    <meta charset="UTF-8">
+    <title>Admin Page</title>
+    <link rel="stylesheet" href="/layout.css">
+</head>
+<main layout:fragment="content">
+    <body>
+        <h1 th:text="#{app.denied}"></h1>
+        <h3 th:text="#{app.deniedMessage}"></h3>
+        <br><br>
+        <a class="home-btn" href="/" th:text="#{app.back}"></a>
+    </body>
+</main>
+</html>

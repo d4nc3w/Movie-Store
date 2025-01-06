@@ -11,5 +11,4 @@ public interface MovieRepository extends PagingAndSortingRepository<Movie, Integ
     Optional<Movie> findById(Integer id);
     void save(Movie movie);
     void deleteById(Integer id);
-    Iterable<Movie> findAll();
 }

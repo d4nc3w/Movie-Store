@@ -24,11 +24,11 @@ public class AdminController {
         this.movieService = movieService;
     }
 
-//    @GetMapping
-//    public String index(Model model) {
-//        model.addAttribute("userEmails", userService.findAllUsers());
-//        return "admin-page";
-//    }
+/*    @GetMapping
+    public String index(Model model) {
+        model.addAttribute("userEmails", userService.findAllUsers());
+        return "admin-page";
+    }*/
 
     @GetMapping
     public String index(@RequestParam(defaultValue = "0") int page, Model model) {

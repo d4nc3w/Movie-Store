@@ -1,7 +1,5 @@
 package com.example.moviestoreapplication.authentication;
 
-import com.example.moviestoreapplication.model.Movie;
-import com.example.moviestoreapplication.model.MovieOrder;
 import com.example.moviestoreapplication.repository.UserRepository;
 import jakarta.transaction.Transactional;
 import org.springframework.data.domain.Page;
@@ -9,10 +7,8 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.password.MessageDigestPasswordEncoder;
-import org.springframework.security.crypto.password.Pbkdf2PasswordEncoder;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -27,10 +23,6 @@ public class UserService {
 
     public Optional<UserDTO> findUserCredentialsByEmail(String email){
         return userRepository.findByEmail(email).map(userDTOMapper::map);
-    }
-
-    public List<User> findAllUsers(){
-        return userRepository.findAll();
     }
 
     @Transactional

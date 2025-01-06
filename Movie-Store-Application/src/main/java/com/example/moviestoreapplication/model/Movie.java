@@ -69,14 +69,6 @@ public class Movie {
         Director = director;
     }
 
-    public boolean isAvailable() {
-        return isAvailable;
-    }
-
-    public void setAvailable(boolean available) {
-        isAvailable = available;
-    }
-
     public double getPrice() {
         return Price;
     }
