@@ -74,11 +74,10 @@ public class MovieController {
         model.addAttribute("movieOrder", new MovieOrderDTO());
         return "order-movie";
     }
-
     @PostMapping("orderMovie")
     public String orderMovie(@ModelAttribute("movieOrder") MovieOrderDTO movieOrderDTO, @RequestParam("movieId") Integer movieId) {
         movieService.orderMovie(movieOrderDTO, movieId);
-        return "redirect:/";
+        return "order-confirm";
     }
 
     @GetMapping("displayFullTable")

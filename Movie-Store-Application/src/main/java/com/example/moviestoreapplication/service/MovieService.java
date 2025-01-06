@@ -102,4 +102,8 @@ public class MovieService {
          Page<Movie> moviesPage = movieRepository.findAll(PageRequest.of(page, size));
          return moviesPage.map(movieDTOMapper::map);
     }
+
+    public Optional<Object> findMovieOrderById(Integer id) {
+        return movieOrderRepository.findById(id);
+    }
 }
