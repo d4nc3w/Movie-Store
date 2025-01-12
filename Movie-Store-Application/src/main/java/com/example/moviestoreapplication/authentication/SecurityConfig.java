@@ -24,6 +24,7 @@ public class SecurityConfig {
                 .requestMatchers("/editMovie").hasAnyRole("EMPLOYEE", "ADMIN")
                 .requestMatchers("/orderMovie").hasAnyRole("CLIENT", "EMPLOYEE", "ADMIN")
                 .requestMatchers("/movie").hasAnyRole( "GUEST", "CLIENT", "EMPLOYEE", "ADMIN")
+                .requestMatchers("/orders").hasAnyRole("CLIENT", "EMPLOYEE", "ADMIN")
                 .requestMatchers(new AntPathRequestMatcher("/h2-console/**")).permitAll()
                 .requestMatchers(PathRequest.toH2Console()).permitAll()
                 .anyRequest().authenticated());

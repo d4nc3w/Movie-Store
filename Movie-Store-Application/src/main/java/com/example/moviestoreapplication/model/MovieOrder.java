@@ -63,9 +63,11 @@ public class MovieOrder {
     @Pattern(regexp = "^\\d{4}-\\d{4}-\\d{4}-\\d{4}$")
     public String Card_Number;
 
+    String customerEmail;
+
     public MovieOrder(){}
 
-    public MovieOrder(Movie movie, User user, LocalDate order_Date, String FirstName, String LastName, String Email, String Address, String City, double Price, String Card_Number, String Title, LocalDate orderDate){
+    public MovieOrder(Movie movie, User user, LocalDate order_Date, String FirstName, String LastName, String Email, String Address, String City, double Price, String Card_Number, String Title, LocalDate orderDate, String customerEmail) {
         this.movie = movie;
         this.user = user;
         this.Title = Title;
@@ -77,6 +79,7 @@ public class MovieOrder {
         this.City = City;
         this.Price = Price;
         this.Card_Number = Card_Number;
+        this.customerEmail = customerEmail;
     }
 
     public Integer getId() {
@@ -173,5 +176,13 @@ public class MovieOrder {
 
     public void setTitle(String title) {
         Title = title;
+    }
+
+    public String getCustomerEmail() {
+        return customerEmail;
+    }
+
+    public void setCustomerEmail(String customerEmail) {
+        this.customerEmail = customerEmail;
     }
 }

@@ -62,7 +62,7 @@ public class MovieService {
     }
 
     @Transactional
-    public void orderMovie(MovieOrderDTO movieOrderDTO, Integer movieID) {
+    public void orderMovie(MovieOrderDTO movieOrderDTO, Integer movieID, String customerEmail) {
         Movie movie = movieRepository.findById(movieID)
                 .orElseThrow(() -> new RuntimeException("Movie not found"));
 
@@ -73,12 +73,34 @@ public class MovieService {
         movieOrder.setOrder_Date(LocalDate.now());
         movieOrder.setFirstName(movieOrderDTO.getFirstName());
         movieOrder.setLastName(movieOrderDTO.getLastName());
-        movieOrder.setEmail(userService.getCurrentUserEmail());
+        movieOrder.setEmail(movieOrderDTO.getEmail());
         movieOrder.setAddress(movieOrderDTO.getAddress());
         movieOrder.setCity(movieOrderDTO.getCity());
         movieOrder.setPrice(movie.Price);
         movieOrder.setCard_Number(movieOrderDTO.getCard_Number());
+        movieOrder.setCustomerEmail(customerEmail);
         movieOrderRepository.save(movieOrder);
+    }
+
+    public Page<MovieOrderDTO> getAllOrdersByEmail(int page, int size) {
+/*        String currentUserEmail = userService.getCurrentUserEmail();
+
+        boolean isAdmin = SecurityContextHolder.getContext().getAuthentication()
+                .getAuthorities().stream()
+                .anyMatch(role -> role.getAuthority().equals("ROLE_ADMIN"));
+
+        Page<MovieOrder> ordersPage;
+        if (isAdmin) {
+            ordersPage = movieOrderRepository.findAll(PageRequest.of(page, size));
+        } else {
+            ordersPage = movieOrderRepository.findOrdersByCustomerEmail(currentUserEmail, PageRequest.of(page, size));
+        }
+        return ordersPage.map(movieOrderDTOMapper::map);*/
+
+        String currentUserEmail = userService.getCurrentUserEmail();
+        Page<MovieOrder> ordersPage;
+        ordersPage = movieOrderRepository.findOrdersByCustomerEmail(currentUserEmail, PageRequest.of(page, size));
+        return ordersPage.map(movieOrderDTOMapper::map);
     }
 
     public Page<MovieOrderDTO> getAllOrders(int page, int size) {

@@ -1,5 +1,6 @@
 package com.example.moviestoreapplication.controller;
 
+import com.example.moviestoreapplication.authentication.UserService;
 import com.example.moviestoreapplication.model.MovieDTO;
 import com.example.moviestoreapplication.model.MovieOrderDTO;
 import com.example.moviestoreapplication.service.MovieService;
@@ -11,10 +12,12 @@ import org.springframework.web.bind.annotation.*;
 @Controller
 @RequestMapping("/")
 public class MovieController {
+    private final UserService userService;
     private MovieService movieService;
 
-    public MovieController(MovieService movieService){
+    public MovieController(MovieService movieService, UserService userService){
         this.movieService = movieService;
+        this.userService = userService;
     }
 
 /*    @GetMapping()
@@ -72,11 +75,16 @@ public class MovieController {
     public String orderMovieForm(@RequestParam  Integer id, Model model){
         movieService.findMovieById(id).ifPresent(movie -> model.addAttribute("movie", movie));
         model.addAttribute("movieOrder", new MovieOrderDTO());
+        model.addAttribute("customerEmail", userService.getCurrentUserEmail());
         return "order-movie";
     }
+
     @PostMapping("orderMovie")
-    public String orderMovie(@ModelAttribute("movieOrder") MovieOrderDTO movieOrderDTO, @RequestParam("movieId") Integer movieId) {
-        movieService.orderMovie(movieOrderDTO, movieId);
+    public String orderMovie(
+            @ModelAttribute("movieOrder") MovieOrderDTO movieOrderDTO,
+            @RequestParam("movieId") Integer movieId,
+            @RequestParam("customerEmail") String customerEmail) {
+        movieService.orderMovie(movieOrderDTO, movieId, customerEmail);
         return "order-confirm";
     }
 
@@ -88,4 +96,16 @@ public class MovieController {
         model.addAttribute("totalPages", moviePage.getTotalPages());
         return "full-table";
     }
+
+    @GetMapping("/orders")
+    public String orderList(@RequestParam(defaultValue = "0") int page, Model model) {
+        Page<MovieOrderDTO> ordersPage = movieService.getAllOrdersByEmail(page, 10);
+
+        model.addAttribute("orders", ordersPage.getContent());
+        model.addAttribute("currentPage", ordersPage.getNumber());
+        model.addAttribute("totalPages", ordersPage.getTotalPages());
+
+        return "orders";
+    }
+
 }

@@ -17,6 +17,8 @@
             <input type="hidden" th:field="*{id}" />
             <input type="hidden" name="movieId" th:value="${movie.id}" />
 
+            <input type="hidden" name="customerEmail" th:value="${customerEmail}" />
+
             <label for="firstName" th:text="#{app.firstname}"></label>
             <input type="text" id="firstName" th:field="*{firstName}" required>
             <span id="firstName_error"></span>

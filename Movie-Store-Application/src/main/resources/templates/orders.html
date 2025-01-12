@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pl-PL" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout}">
+<head>
+  <title>Orders</title>
+  <link rel="stylesheet" href="/layout.css">
+  <link rel="stylesheet" href="/movie.css">
+</head>
+<main layout:fragment="content">
+<body>
+<h1 th:text="#{app.orderList}"></h1>
+<table>
+  <thead>
+  <tr>
+    <th>Id</th>
+    <th th:text="#{app.title}"></th>
+    <th th:text="#{app.firstname}"></th>
+    <th th:text="#{app.lastname}"></th>
+    <th th:text="#{app.email}"></th>
+    <th th:text="#{app.city}"></th>
+    <th th:text="#{app.price}"></th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr th:each="order : ${orders}">
+    <td th:text="${order.id}"></td>
+    <td th:text="${order.title}"></td>
+    <td th:text="${order.firstName}"></td>
+    <td th:text="${order.lastName}"></td>
+    <td th:text="${order.email}"></td>
+    <td th:text="${order.city}"></td>
+    <td th:text="${order.price}"></td>
+  </tr>
+  </tbody>
+
+  <div>
+    <a th:href="@{/orders?page=__${currentPage - 1}__}"
+       th:if="${currentPage > 0}"
+       th:text="#{app.previous}"></a>
+
+    <span th:text="'Page ' + (${currentPage + 1}) + ' of ' + ${totalPages}"></span>
+
+    <a th:href="@{/orders?page=__${currentPage + 1}__}"
+       th:if="${currentPage < totalPages - 1}"
+       th:text="#{app.next}"></a>
+  </div>
+</table>
+
+<a class="home-btn" href="/" th:text="#{app.back}"></a>
+</body>
+</main>
+</html>

@@ -26,6 +26,7 @@
             <th th:text="#{app.cardnumber}"></th>
             <th th:text="#{app.movieId}"></th>
             <th th:text="#{app.userId}"></th>
+            <th th:text="#{app.customerEmail}"></th>
         </tr>
         </thead>
         <tbody>
@@ -42,7 +43,7 @@
             <td th:text="${movieOrder.card_Number}"></td>
             <td th:text="${movieOrder.movie.id}"></td>
             <td th:text="${movieOrder.user.id}"></td>
-
+            <td th:text="${movieOrder.customerEmail}"></td>
         </tr>
         </tbody>
     </table>
@@ -62,7 +63,6 @@
 
     <a class="home-btn" href="/" th:text="#{app.back}"></a>
     <a class="admin-btn" href="/adminPage" th:text="#{app.adminPage}"></a>
-
 </body>
 </main>
 </html>

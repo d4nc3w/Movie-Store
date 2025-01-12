@@ -65,6 +65,6 @@ public class AdminController {
         model.addAttribute("orders", ordersPage.getContent());
         model.addAttribute("currentPage", ordersPage.getNumber());
         model.addAttribute("totalPages", ordersPage.getTotalPages());
-        return "order-list";
+        return "detailed_orders";
     }
 }

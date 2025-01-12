@@ -20,6 +20,7 @@ public class MovieOrderDTOMapper {
         movieOrderDTO.setCity(movieOrder.getCity());
         movieOrderDTO.setPrice(movieOrder.getPrice());
         movieOrderDTO.setCard_Number(movieOrder.getCard_Number());
+        movieOrderDTO.setCustomerEmail(movieOrder.getCustomerEmail());
         return movieOrderDTO;
     }
 }

@@ -49,9 +49,11 @@ public class MovieOrderDTO {
     @Pattern(regexp = "^\\d{4}-\\d{4}-\\d{4}-\\d{4}$")
     public String Card_Number;
 
+    public String customerEmail;
+
     public MovieOrderDTO(){}
 
-    public MovieOrderDTO(Movie movie, User user, LocalDate orderDate, String FirstName, String LastName, String Email, String Address, String City, double Price, String Card_Number, String Title){
+    public MovieOrderDTO(Movie movie, User user, LocalDate orderDate, String FirstName, String LastName, String Email, String Address, String City, double Price, String Card_Number, String Title, String customerEmail) {
         this.movie = movie;
         this.user = user;
         this.orderDate = orderDate;
@@ -159,5 +161,13 @@ public class MovieOrderDTO {
 
     public void setTitle(String title) {
         Title = title;
+    }
+
+    public String getCustomerEmail() {
+        return customerEmail;
+    }
+
+    public void setCustomerEmail(String customerEmail) {
+        this.customerEmail = customerEmail;
     }
 }
