@@ -63,6 +63,8 @@ public class MovieOrder {
     @Pattern(regexp = "^\\d{4}-\\d{4}-\\d{4}-\\d{4}$")
     public String Card_Number;
 
+    @NotNull
+    @Email
     String customerEmail;
 
     public MovieOrder(){}

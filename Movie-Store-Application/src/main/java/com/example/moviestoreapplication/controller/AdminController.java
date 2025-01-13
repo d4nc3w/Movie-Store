@@ -59,12 +59,13 @@ public class AdminController {
         return "redirect:/adminPage";
     }
 
-    @GetMapping("/orderList")
-    public String orderList(@RequestParam(defaultValue = "0") int page, Model model){
+    @GetMapping("/allRecords")
+    public String allRecords(@RequestParam(defaultValue = "0") int page, Model model) {
         Page<MovieOrderDTO> ordersPage = movieService.getAllOrders(page, 10);
         model.addAttribute("orders", ordersPage.getContent());
         model.addAttribute("currentPage", ordersPage.getNumber());
         model.addAttribute("totalPages", ordersPage.getTotalPages());
-        return "detailed_orders";
+        return "all_records";
     }
+
 }

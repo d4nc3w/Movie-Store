@@ -49,6 +49,8 @@ public class MovieOrderDTO {
     @Pattern(regexp = "^\\d{4}-\\d{4}-\\d{4}-\\d{4}$")
     public String Card_Number;
 
+    @NotNull
+    @Email
     public String customerEmail;
 
     public MovieOrderDTO(){}

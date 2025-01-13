@@ -19,4 +19,8 @@ public interface MovieOrderRepository extends PagingAndSortingRepository<MovieOr
     @Query("SELECT o FROM MovieOrder o WHERE o.customerEmail = :customerEmail")
     Page<MovieOrder> findOrdersByCustomerEmail(@Param("customerEmail") String customerEmail, Pageable pageable);
 
+    @Query("SELECT mo FROM MovieOrder mo JOIN FETCH mo.movie JOIN FETCH mo.user")
+    Page<MovieOrder> findAllOrdersWithDetails(Pageable pageable);
+
+
 }
