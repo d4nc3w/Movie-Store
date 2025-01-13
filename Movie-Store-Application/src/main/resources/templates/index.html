@@ -17,6 +17,7 @@
             <th th:text="#{app.director}"></th>
             <th th:text="#{app.title}"></th>
             <th th:text="#{app.price}"></th>
+            <th th:text="#{app.isAvailable}"></th>
             <th th:text="#{app.action}"></th>
         </tr>
         </thead>
@@ -25,9 +26,12 @@
             <td th:text="${movie.director}"></td>
             <td th:text="${movie.title}"></td>
             <td th:text="${movie.price}"></td>
+            <td th:text="${movie.isAvailable}"></td>
             <td>
                 <a class="details-btn" th:href="@{'/movie?id=' + ${movie.id}}" role="button" th:text="#{app.details}"></a>
-                <a class="home-btn" th:href="@{'/orderMovie?id=' + ${movie.id}}" role="button" th:text="#{app.order}"></a>
+                <a class="home-btn" th:if="${movie.isAvailable}"
+                   th:href="@{'/orderMovie?id=' + ${movie.id}}"
+                   role="button" th:text="#{app.order}"></a>
             </td>
         </tr>
         </tbody>

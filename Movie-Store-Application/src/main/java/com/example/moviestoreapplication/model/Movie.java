@@ -37,11 +37,11 @@ public class Movie {
 
     public Movie(){}
 
-    public Movie(String Director, String Title, double Price, String Description){
+    public Movie(String Director, String Title, double Price, String Description, boolean isAvailable){
         this.Director = Director;
         this.Title = Title;
         this.Price = Price;
-        this.isAvailable = true;
+        this.isAvailable = isAvailable;
         this.Description = Description;
     }
 
@@ -83,5 +83,13 @@ public class Movie {
 
     public void setDescription(String description) {
         Description = description;
+    }
+
+    public boolean isAvailable() {
+        return isAvailable;
+    }
+
+    public void setAvailable(boolean available) {
+        isAvailable = available;
     }
 }

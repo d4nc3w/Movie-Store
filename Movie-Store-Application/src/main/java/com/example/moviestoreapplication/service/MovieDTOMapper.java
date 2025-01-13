@@ -13,6 +13,7 @@ public class MovieDTOMapper {
         movieDTO.setPrice(movie.getPrice());
         movieDTO.setTitle(movie.getTitle());
         movieDTO.setDescription(movie.getDescription());
+        movieDTO.setAvailable(movie.isAvailable());
         return movieDTO;
     }
 
@@ -23,6 +24,7 @@ public class MovieDTOMapper {
         movie.setPrice(movieDTO.getPrice());
         movie.setTitle(movieDTO.getTitle());
         movie.setDescription(movieDTO.getDescription());
+        movie.setAvailable(movieDTO.isAvailable());
         return movie;
     }
 }

@@ -66,6 +66,10 @@ public class MovieService {
         Movie movie = movieRepository.findById(movieID)
                 .orElseThrow(() -> new RuntimeException("Movie not found"));
 
+        if(!movie.isAvailable){
+            throw new RuntimeException("Movie is not available");
+        }
+
         MovieOrder movieOrder = new MovieOrder();
         movieOrder.setMovie(movie);
         movieOrder.setUser(userService.getCurrentUser());

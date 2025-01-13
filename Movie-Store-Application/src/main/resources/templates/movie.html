@@ -20,6 +20,7 @@
                 <th th:text="#{app.title}"></th>
                 <th th:text="#{app.price}"></th>
                 <th th:text="#{app.description}"></th>
+                <th th:text="#{app.isAvailable}"></th>
             </tr>
             </thead>
             <tbody>
@@ -29,10 +30,13 @@
                 <td th:text="${movie.title}"></td>
                 <td th:text="${movie.price}"></td>
                 <td th:text="${movie.description}"></td>
+                <td th:text="${movie.isAvailable}"></td>
             </tr>
             </tbody>
         </table>
-    <a class="home-btn" th:href="@{'/orderMovie?id=' + ${movie.id}}" role="button" th:text="#{app.order}"></a>
+    <a class="home-btn" th:if="${movie.isAvailable}"
+       th:href="@{'/orderMovie?id=' + ${movie.id}}"
+       role="button" th:text="#{app.order}"></a>
     <a class="delete-btn" th:href="@{/deleteMovie(id=${movie.id})}" role="button" th:text="#{app.delete}"></a>
     <a class="edit-btn" th:href="@{/editMovie(id=${movie.id})}" role="button" th:text="#{app.edit}"></a>
 </div>

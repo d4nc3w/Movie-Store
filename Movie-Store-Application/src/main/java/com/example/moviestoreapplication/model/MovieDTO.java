@@ -27,11 +27,11 @@ public class MovieDTO {
 
     public MovieDTO(){}
 
-    public MovieDTO(String Director, String Title, double Price, String Description){
+    public MovieDTO(String Director, String Title, double Price, String Description, boolean isAvailable){
         this.Director = Director;
         this.Title = Title;
         this.Price = Price;
-        this.isAvailable = true;
+        this.isAvailable = isAvailable;
         this.Description = Description;
     }
 
@@ -73,5 +73,13 @@ public class MovieDTO {
 
     public void setDescription(String description) {
         Description = description;
+    }
+
+    public boolean isAvailable() {
+        return isAvailable;
+    }
+
+    public void setAvailable(boolean available) {
+        isAvailable = available;
     }
 }
