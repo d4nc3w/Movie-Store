@@ -11,6 +11,7 @@
 <main layout:fragment="content">
     <body>
     <h1 th:text="#{app.allOrders}"></h1>
+    <div id="xx" style="overflow-x:scroll">
     <table>
         <thead>
         <tr>
@@ -64,6 +65,7 @@
         </tr>
         </tbody>
     </table>
+    </div>
 
     <div>
         <a th:href="@{/adminPage/allRecords?page=__${currentPage - 1}__}"
